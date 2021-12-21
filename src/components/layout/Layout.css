@@ -1,0 +1,22 @@
+.app-bg {
+  background-color: #141416;
+  min-height: 100vh;
+}
+.footer-styles {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+h1,
+h2 {
+  color: white;
+  text-align: center;
+  align-self: center;
+}
+
+.inverted-img {
+  filter: invert(100%);
+}

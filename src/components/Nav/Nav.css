@@ -1,0 +1,14 @@
+.btn-nav {
+  background-color: black;
+  border-radius: 0px;
+  border: none;
+}
+
+.btn-nav:hover {
+  background-color: #921131;
+}
+
+.styledLink,
+.styledLink:hover {
+  color: white;
+}
