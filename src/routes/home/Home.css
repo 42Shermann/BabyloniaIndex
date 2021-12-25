@@ -1,3 +1,9 @@
 .text-style {
   color: white;
 }
+
+.center-fit {
+  height: 100%;
+  width: 100vh;
+  object-fit: contain;
+}

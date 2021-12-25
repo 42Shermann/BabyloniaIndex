@@ -4,7 +4,7 @@ import NavProp from '../Nav/Nav';
 function SideBar(props) {
     return (
         <div>
-            <img src="https://gdurl.com/HL5O" className="mx-auto d-block img-fluid" alt=""/>
+            <img src="https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640447690/banner/main_tsh7e4.png" className="mx-auto d-block img-fluid" alt=""/>
                 <p className="text-white text-center">Main</p>
                         <div className='row'>
                             <div className='col-6'>

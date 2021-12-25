@@ -14,6 +14,8 @@ function CharsDetail() {
 
   useEffect(() => {
 
+    setLoading(true);
+
     const fetchData = async ()=>{
       try{
       const response = await fetch(`${api}/api/construct/${userId}`, {

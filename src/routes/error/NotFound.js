@@ -9,7 +9,7 @@ function NotFound(props) {
             <Row>
                 <Col>
                     <div >
-                        <img className="img-notFound mx-auto d-block" src="https://gdurl.com/rjM0" alt="AylaNo"/>
+                        <img className="img-notFound mx-auto d-block" src="https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640447688/banner/1637393088614_wnzy9t.png" alt="AylaNo"/>
                     </div>
                 </Col>
             </Row>

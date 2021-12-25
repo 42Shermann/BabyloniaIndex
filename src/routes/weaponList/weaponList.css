@@ -3,3 +3,27 @@
   width: 150px;
   max-height: 100%;
 }
+
+.panel-header button {
+  border: none;
+  background: black;
+  color: white;
+}
+
+.panel-body:active accordion-header:focus {
+  background: red;
+  border: none;
+}
+
+.panel-body {
+  background: black;
+  color: #333333;
+  padding: 5px;
+  border: red;
+  border-width: 2px;
+}
+
+.styledLink,
+.styledLink:hover {
+  color: white;
+}
