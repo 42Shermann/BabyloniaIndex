@@ -1,37 +1,48 @@
 import React, {useState, useEffect} from 'react';
-import { useRealmApp } from '../../services/realmApp';
+import api from '../../services/api';
 import Table from 'react-bootstrap/Table';
 import './weaponList.css'
 import Spinner from 'react-bootstrap/esm/Spinner';
 
 function WeaponList() {
 
-    const app = useRealmApp();
-
     const [loading, setLoading] = useState(true);
     const [DATA, setData] = useState([]);
     const [wepType, setType] = useState([]);
+
+    const fetchData = async ()=>{
+        try{
+        const response = await fetch(`${api}/api/weapon`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }});
     
-    // eslint-disable-next-line
-    useEffect(async()=>{
-        const fetchData = await app.getAllWeapons();
+        const json = await response.json();
+
         //Get weapon type
-        const unique = [...new Set(fetchData.map(item => item.type))];
+        const unique = [...new Set(json.map(item => item.type))];
         setType(unique);
         //
-        setData(fetchData);
+        setData(json);
         setLoading(false);
+    
+      }catch(e){console.log(e);}
+     }
+
+    useEffect(() => {
+        fetchData();
     }
-     // eslint-disable-next-line
     ,[])
 
 
     return (
         <div>
             {wepType.length === 0 && loading ?
-            <diV className="text-center">
+            <div className="text-center">
                 <Spinner animation="border" variant="light" />
-            </diV>
+            </div>
             :
             <>
             {wepType.map(((type, index) =>(

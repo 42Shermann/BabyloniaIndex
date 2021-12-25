@@ -13,7 +13,7 @@ function CharsOverview() {
                     <h3 className="text-white bg-danger text-center">Construct Overview</h3>
                     <div className="my-4">
                         <h4 className="text-white">About Constructs</h4>
-                        <p>Constructs are designed for the majority of the game's content and possess default class ratings of B-Rank, A-Rank, and S-Rank.</p>
+                        <p>Constructs are designed for the majority of the game's content and possess default className ratings of B-Rank, A-Rank, and S-Rank.</p>
                         <p>
                             Constructs have three predesignated classes: Attacker (dealing damage), Tank (weakening enemies), and Support (healing and buffing allies). They cannot be deployed in the same team as Compositers.
                         </p>

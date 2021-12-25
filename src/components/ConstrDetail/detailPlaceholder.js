@@ -18,8 +18,8 @@ function DetailPlaceholder() {
           <Tab eventKey="overview" title="Overview">
           <div className="row">
               <div className="bg-white my-3 ">
-                <figure class="text-start ">
-                <Placeholder as={'blockquote'} class="blockquote my-4 lead text-black">
+                <figure className="text-start ">
+                <Placeholder as={'blockquote'} className="blockquote my-4 lead text-black">
                     <Placeholder  xs={12} animation="glow" />
                 </Placeholder>
               </figure>

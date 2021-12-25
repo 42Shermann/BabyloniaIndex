@@ -6,7 +6,7 @@ function Cards({ data }) {
 
         const display = data.map(data=>(
             <div key={data.id} className="car-container" >
-                <Link  to={`/detail/${data.id}`}>
+                <Link  to={`/detail/${data.cID}`}>
                     <div >
                         <img src={data.img} alt={data.Model} className="thumb-post-img"/>
                     </div>

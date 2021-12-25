@@ -9,14 +9,14 @@ import './ConstrDetail.css';
 function ConstrDetail({data}) {
 
     const tag = {
-        rank:getRank(data.construct.rank),
-        type:getType(data.construct.type),
-        faction:getFaction(data.construct.faction),
-        gift:getGift(data.construct.gift),
+        rank:getRank(data.rank),
+        type:getType(data.type),
+        faction:getFaction(data.faction),
+        gift:getGift(data.gift),
       }
     
     //Render element type
-    const eleTypes = data.construct.element.map(data=>(
+    const eleTypes = data.element.map(data=>(
       <div className="col">
         <img className="img-fluid mx-auto d-block" src={data.icon} alt={data.eleType}/>
         <p>{data.eleType}</p>
@@ -26,31 +26,31 @@ function ConstrDetail({data}) {
     return (
         <div className="container-fluid bg-color">
         <div>
-          <div className="h1 text-white text-center text-bold">{data.construct.name} : {data.construct.Model}</div>
+          <div className="h1 text-white text-center text-bold">{data.name} : {data.Model}</div>
         </div>
         <div>
         <Tabs defaultActiveKey="overview" id="uncontrolled-tab-example" className="main-tab" >
           <Tab eventKey="overview" title="Overview">
           <div className="row">
               <div className="bg-white my-3 ">
-                <figure class="text-start ">
-                <blockquote class="blockquote my-4 lead text-black">
-                  <em>{data.construct.desc}</em>
+                <figure className="text-start ">
+                <blockquote className="blockquote my-4 lead text-black">
+                  <em>{data.desc}</em>
                 </blockquote>
               </figure>
               </div>
             </div>
             <div className="row">
               <div className="col-lg-4 col-xm-12">
-                <img className="img-fluid" src={data.construct.img} alt={data.construct.Model} />
+                <img className="img-fluid" src={data.img} alt={data.Model} />
                 <div className="spec-bg text-white">
                 <div className="py-4">
                   <div className="icon-container">
                       <div>
-                          <img className="img-type" src={data.construct.chibiImg.awaken} alt="awaken"/>
+                          <img className="img-type" src={data.chibiImg.awaken} alt="awaken"/>
                           </div>
                           <div>
-                          <img className="img-type" src={data.construct.chibiImg.dorm} alt="dorm"/>
+                          <img className="img-type" src={data.chibiImg.dorm} alt="dorm"/>
                       </div>
                   </div>
                 </div>
@@ -59,8 +59,8 @@ function ConstrDetail({data}) {
                     <h4>Speciality</h4>
                   </div>
                   <div className="px-2">
-                  <p>{data.construct.Speciality[0]}</p>
-                  <p>{data.construct.Speciality[1]}</p>
+                  <p>{data.Speciality[0]}</p>
+                  <p>{data.Speciality[1]}</p>
                   </div>
                 </div>
                 <div className="">
@@ -74,7 +74,7 @@ function ConstrDetail({data}) {
                 </div>
               </div>
               <div className="col-lg-8 col-xm-12">
-                <Stats info={data.construct.info} statDetails={data.construct.stats} tag={tag} />
+                <Stats info={data.info} statDetails={data.stats} tag={tag} />
               </div>
             </div>
             <div className="text-white mb-4">
@@ -82,13 +82,13 @@ function ConstrDetail({data}) {
                 <h2>Skills & Passives</h2>
               </div>
               <div>
-                <TabComp props={data.construct.skillOrb} type="skill"/>
+                <TabComp props={data.skillOrb} type="skill"/>
               </div>
               <div>
-                <TabComp props={data.construct.skillPassive} type="skill"/>
+                <TabComp props={data.skillPassive} type="skill"/>
               </div>
               <div>
-                <TabComp props={data.construct.Rank} type="skill"/>
+                <TabComp props={data.Rank} type="skill"/>
               </div>
             </div>
             <div className="text-white mb-4">
@@ -98,17 +98,17 @@ function ConstrDetail({data}) {
               <div>
               <div className="row align-items-center">
                       <div className="col-12 col-lg-2">
-                          <img className="img-fluid mx-auto d-block" src={data.consWep.img} alt="weapon"/>
+                          <img className="img-fluid mx-auto d-block" src={data.sig.img} alt="weapon"/>
                       </div>
                   <div className="col-12 col-lg-10">
                       <div className="row mt-1">
                           <h3 className="text-white">
-                            {data.consWep.name}
+                            {data.sig.name}
                           </h3>
                       </div>
                       <div className="row">
                           <p>
-                          {data.consWep.ability}
+                          {data.sig.ability}
                           </p>
                       </div>
                   </div>

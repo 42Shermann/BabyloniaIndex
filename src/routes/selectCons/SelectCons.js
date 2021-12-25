@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router';
-import { useRealmApp } from '../../services/realmApp';
+import api from '../../services/api';
 import Spinner from 'react-bootstrap/Spinner'
 import './SelectCons.css'
 import Cards from '../../components/Cards/Cards';
@@ -8,20 +8,31 @@ import Cards from '../../components/Cards/Cards';
 
 function SelectCons() {
 
-    const app = useRealmApp();
-
     const [loading, setLoading] = useState(true);
     const [DATA, setData] = useState([]);
-    
-    // eslint-disable-next-line
-    useEffect(async()=>{
 
-        const fetchData = await app.getConstrData();
-        setData(fetchData);
+    const fetchData = async ()=>{
+        try{
+        const response = await fetch(`${api}/api/construct`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          }});
+    
+        const json = await response.json();
+
+        setData(json);
         setLoading(false);
+    
+      }catch(e){console.log(e);}
+     }
+
+    useEffect(() => {
+        fetchData();
     }
-     // eslint-disable-next-line
     ,[])
+    
 
     const rankS = DATA.filter(data => data.rank === "S");
     const rankA = DATA.filter(data => data.rank === "A");
@@ -42,9 +53,10 @@ function SelectCons() {
                 <Cards data={rankS}/>
             </div>    
         </div>:
-        <diV className="text-center">
+        <div className="text-center">
             <Spinner animation="border" variant="light" />
-        </diV>}
+        </div>
+        }
         </div>
     );
 }
