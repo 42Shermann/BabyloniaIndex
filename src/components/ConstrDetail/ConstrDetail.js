@@ -1,7 +1,7 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
-import { getRank, getType, getFaction, getGift } from '../api/mockdata/DATA';
+import { getRank, getType, getFaction, getGift } from '../../constants/DATA';
 import TabComp from '../Tab/Tab';
 import Stats from '../Stats/Stats';
 import './ConstrDetail.css';

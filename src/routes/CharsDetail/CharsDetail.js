@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
-import Spinner from 'react-bootstrap/esm/Spinner';
 import { useParams } from 'react-router-dom';
 import ConstrDetail from '../../components/ConstrDetail/ConstrDetail';
+import DetailPlaceholder from '../../components/ConstrDetail/detailPlaceholder';
 import api from '../../services/api';
 import './CharsDetail.css';
 
@@ -41,8 +41,8 @@ function CharsDetail() {
     {(!loading)? (
       <ConstrDetail data={data[0]}/>
   ):(
-    <div className="text-center">
-      <Spinner animation="border" variant="light" />
+    <div>
+      <DetailPlaceholder />
     </div>
   )}
     </>

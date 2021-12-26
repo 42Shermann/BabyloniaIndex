@@ -10,11 +10,6 @@
   color: white;
 }
 
-.panel-body:active accordion-header:focus {
-  background: red;
-  border: none;
-}
-
 .panel-body {
   background: black;
   color: #333333;
