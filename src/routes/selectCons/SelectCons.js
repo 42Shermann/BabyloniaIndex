@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router';
 import api from '../../services/api';
+import { RANK } from '../../constants/DATA';
 import Spinner from 'react-bootstrap/Spinner'
+import Form from 'react-bootstrap/Form'
 import './SelectCons.css'
 import Cards from '../../components/Cards/Cards';
 
@@ -10,6 +12,7 @@ function SelectCons() {
 
     const [loading, setLoading] = useState(true);
     const [DATA, setData] = useState([]);
+    const [query, setQuery] = useState("")
 
     const fetchData = async ()=>{
         try{
@@ -34,8 +37,12 @@ function SelectCons() {
     ,[])
     
 
-    const rankS = DATA.filter(data => data.rank === "S");
-    const rankA = DATA.filter(data => data.rank === "A");
+    const queryData = DATA.filter(post => (
+        query === '' ?
+        post
+        :
+        post.cID.toLowerCase().includes(query.toLowerCase())
+    ))
 
     return (
         <div >
@@ -44,15 +51,19 @@ function SelectCons() {
         </div>
         {!loading ? 
         <div>
+            <Form>
+            <Form.Group className="mb-3 search-bar" controlId="exampleForm.ControlInput1">
+                <Form.Control type="email" placeholder="Construct Search" onChange={event => setQuery(event.target.value)} />
+            </Form.Group>
+            </Form>
+            {RANK.map(item => (
             <div>
-                <h5 className="text-white">A Rank</h5>
-                <Cards data={rankA}/>
+                <h5 className="text-white">{item.rank}</h5>
+                <Cards data={queryData.filter(data => data.rank === item.rank)}/>
             </div>
-            <div>
-                <h5 className="text-white">S Rank</h5>
-                <Cards data={rankS}/>
-            </div>    
-        </div>:
+            ))}    
+        </div>
+        :
         <div className="text-center">
             <Spinner animation="border" variant="light" />
         </div>

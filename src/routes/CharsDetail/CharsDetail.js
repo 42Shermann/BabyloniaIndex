@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ConstrDetail from '../../components/ConstrDetail/ConstrDetail';
 import DetailPlaceholder from '../../components/ConstrDetail/detailPlaceholder';
 import api from '../../services/api';
@@ -7,10 +7,10 @@ import './CharsDetail.css';
 
 function CharsDetail() {
 
+  const navigate = useNavigate();
   const { userId } = useParams();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
 
@@ -26,14 +26,20 @@ function CharsDetail() {
         }});
   
       const json = await response.json();
-      setData(json);
-      setLoading(false);
-  
+
+      if (json.length === 0) {
+        navigate("/404");
+      }
+      else {
+        setData(json);
+        setLoading(false);
+      }
     }catch(e){console.log(e);}
    }
 
     fetchData();
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   ,[userId])
 
   return(

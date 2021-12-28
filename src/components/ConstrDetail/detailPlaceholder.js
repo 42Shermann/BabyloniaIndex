@@ -13,7 +13,7 @@ function DetailPlaceholder() {
             <div className="container-fluid text-white stats-bg">
             <div>
               <Placeholder as="h2" animation="glow">
-                  <Placeholder xs={5}/>
+                  <Placeholder xs={4}/>
               </Placeholder>
             </div>
             <div className="row">
@@ -22,37 +22,55 @@ function DetailPlaceholder() {
             <div className="row my-4">
                 <div className="col-6">
                     <div className="row">
-                        <strong>Service Time</strong>
+                    {/*Service Time */}
+                      <Placeholder as="p" animation="glow">
+                          <Placeholder xs={4}/>
+                      </Placeholder>
                         <Placeholder as="p" animation="glow">
                           <Placeholder xs={2}/>
                       </Placeholder>
                     </div>
                     <div className="row">
-                        <strong>Psychological Age</strong>
+                    {/*Psychological Age */}
+                    <Placeholder as="p" animation="glow">
+                          <Placeholder xs={5}/>
+                      </Placeholder>
                         <Placeholder as="p" animation="glow">
                           <Placeholder xs={2}/>
                       </Placeholder>
                     </div>
                     <div className="row">
-                        <strong>Activation Date</strong>
+                      {/*Activation Date*/}
+                      <Placeholder as="p" animation="glow">
+                          <Placeholder xs={6}/>
+                      </Placeholder>
                         <Placeholder as="p" animation="glow">
                           <Placeholder xs={5}/>
                       </Placeholder>
                     </div>    
                     <div className="row">
-                        <strong>Height</strong>
+                      {/*Height*/}
+                      <Placeholder as="p" animation="glow">
+                          <Placeholder xs={3}/>
+                      </Placeholder>
                         <Placeholder as="p" animation="glow">
                           <Placeholder xs={3}/>
                       </Placeholder>
                     </div>
                     <div className="row">
-                        <strong>Weight</strong>
+                      {/*Weight*/}
+                      <Placeholder as="p" animation="glow">
+                          <Placeholder xs={3}/>
+                      </Placeholder>
                         <Placeholder as="p" animation="glow">
                           <Placeholder xs={2}/>
                       </Placeholder>
                     </div>    
                     <div className="row">
-                        <strong>Vital Fluid Type</strong>
+                      {/*Vital Fluid Type */}
+                      <Placeholder as="p" animation="glow">
+                          <Placeholder xs={5}/>
+                      </Placeholder>
                         <Placeholder as="p" animation="glow">
                           <Placeholder xs={2}/>
                       </Placeholder>
@@ -61,25 +79,37 @@ function DetailPlaceholder() {
                 <div className="col-6 border-start border-white">
                     <div className="row text-center">
                         <div className="col ">
-                            <strong>HP</strong>
+                          {/*HP */}
+                          <Placeholder as="p" animation="glow">
+                              <Placeholder xs={5}/>
+                          </Placeholder>
                             <Placeholder as="p" animation="glow">
                               <Placeholder xs={5}/>
                           </Placeholder>
                         </div>
                         <div className="col ">
-                            <strong>DEF</strong>
+                            {/*DEF */}
+                            <Placeholder as="p" animation="glow">
+                              <Placeholder xs={5}/>
+                          </Placeholder>
                             <Placeholder as="p" animation="glow">
                               <Placeholder xs={5}/>
                           </Placeholder>
                         </div>
                         <div className="col">
-                            <strong>ATK</strong>
+                            {/*ATK */}
+                            <Placeholder as="p" animation="glow">
+                              <Placeholder xs={5}/>
+                          </Placeholder>
                             <Placeholder as="p" animation="glow">
                               <Placeholder xs={5}/>
                           </Placeholder>
                         </div>
                         <div className="col">
-                            <strong>CRIT</strong>
+                            {/*CRIT */}
+                            <Placeholder as="p" animation="glow">
+                              <Placeholder xs={5}/>
+                          </Placeholder>
                             <Placeholder as="p" animation="glow">
                               <Placeholder xs={5}/>
                           </Placeholder>
@@ -94,9 +124,9 @@ function DetailPlaceholder() {
 
     return (
         <div className="container-fluid bg-color">
-        <div>
+        <div className="h1 text-white text-center text-bold">
         <Placeholder as="p" animation="glow">
-            <Placeholder xs={12} className="h1 text-white text-center text-bold"/>
+            <Placeholder xs={6} />
         </Placeholder>
         </div>
         <div>

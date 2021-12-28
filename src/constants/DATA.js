@@ -1,4 +1,4 @@
-const RANK = [
+export const RANK = [
       {
         id:1,
         rank:"B",
