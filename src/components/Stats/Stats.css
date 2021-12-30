@@ -1,3 +1,14 @@
 .stats-bg {
   background-color: #212129;
 }
+
+.divider {
+  border-left: 2px solid white;
+}
+
+@media (max-width: 768px) {
+  .divider {
+    border-top: 2px solid white;
+    border-left: none;
+  }
+}

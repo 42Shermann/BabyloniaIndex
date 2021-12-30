@@ -76,7 +76,7 @@ function DetailPlaceholder() {
                       </Placeholder>
                     </div>
               </div>
-                <div className="col-6 border-start border-white">
+                <div className="col-12 col-md-6 border-top border-md-start border-white">
                     <div className="row text-center">
                         <div className="col ">
                           {/*HP */}

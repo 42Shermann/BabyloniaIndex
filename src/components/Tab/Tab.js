@@ -19,8 +19,8 @@ function TabComp( {props} ) {
                     </h3>
                 </div>
                 <div className="row">
-                    <p>
-                    {data.skillDesc}
+                    <p className='new-line-text'>
+                    {data.skillDesc.split('\n').map ((item, i) => <p key={i}>{item}</p>)}
                     </p>
                 </div>
             </div>

@@ -17,7 +17,7 @@ function Stats({ info, statDetails, tag }) {
                 <div className="mb-4 border border-top border-white" />
             </div>
             <div className="row my-4">
-                <div className="col-6">
+                <div className="col-12 col-md-6">
                     <div className="row">
                         <strong>Service Time</strong>
                         <p>{serviceTime}</p>
@@ -43,7 +43,7 @@ function Stats({ info, statDetails, tag }) {
                         <p>{vitalFluidType}</p>
                     </div>
               </div>
-                <div className="col-6 border-start border-white">
+                <div className="col-12 col-md-6 divider">
                     <div className="row">
                         <img className="img-fluid" src={chart} alt="Chart"/>
                     </div>

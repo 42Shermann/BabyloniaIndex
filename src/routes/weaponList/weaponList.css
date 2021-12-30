@@ -22,3 +22,7 @@
 .styledLink:hover {
   color: white;
 }
+
+.scrollBar-hidden {
+  overflow: hidden; /* Hide scrollbars */
+}

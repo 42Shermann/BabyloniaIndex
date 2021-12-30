@@ -28,3 +28,7 @@
 .tabContents {
   background-color: black;
 }
+
+.new-line-text {
+  white-space: pre-wrap;
+}

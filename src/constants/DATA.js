@@ -49,6 +49,34 @@ const TYPES = [
     },
 ]
 
+const ELEMENTS = [
+    {
+        id:1,
+        name:'Physical',
+        img:'https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640532348/icon/elements/38px-Element-Physical-Icon-White_e4iivo.png'
+    },
+    {
+        id:2,
+        name:'Fire',
+        img:'https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640532346/icon/elements/38px-Element-Fire-Icon-White_qcrd0b.png'
+    },
+    {
+        id:3,
+        name:'Ice',
+        img:'https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640846501/icon/elements/38px-Element-Ice-Icon-White_pvthkw.png'
+    },
+    {
+        id:4,
+        name:'Lighting',
+        img:'https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640846977/icon/elements/38px-Element-Lightning-Icon-White_ntimlv.png'
+    },
+    {
+        id:5,
+        name:'Dark',
+        img:'https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640532345/icon/elements/38px-Element-Dark-Icon-White_louzjs.png'
+    }
+]
+
 const FACTIONS=[
     {
         id:1,
@@ -184,6 +212,12 @@ export function getRank(input) {
 export function getType(input) {
     return TYPES.find(
         type => type.type === input 
+    );
+} 
+
+export function getElement(input) {
+    return ELEMENTS.find(
+        type => type.name === input 
     );
 } 
 

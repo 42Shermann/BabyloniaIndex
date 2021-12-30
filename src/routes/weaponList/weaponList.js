@@ -75,7 +75,7 @@ function WeaponList() {
             {wepType.map(((type, index) =>(
             <>
             <h3 id={type} className="text-white" key={index}>{type}</h3>
-            <Table>
+            <Table className='scrollBar-hidden' responsive>
                 <thead>
                     <tr className="bg-danger">
                         <th>Weapon</th>
