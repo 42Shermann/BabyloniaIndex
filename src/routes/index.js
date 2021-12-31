@@ -14,7 +14,7 @@ function IndexRoute() {
         <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
-        <Route path="detail" element={<SelectCons />} >
+        <Route path="characters" element={<SelectCons />} >
             <Route index element={<CharsOverview />} />
             <Route path=":userId" element={<CharsDetail />} />
         </Route>

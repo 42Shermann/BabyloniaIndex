@@ -1,6 +1,7 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
+import Image from 'react-bootstrap/Image'
 import { getRank, getType, getFaction, getGift, getElement } from '../../constants/DATA';
 import TabComp from '../Tab/Tab';
 import Stats from '../Stats/Stats';
@@ -57,10 +58,13 @@ function ConstrDetail({data}) {
                 <div className="py-4">
                   <div className="icon-container">
                       <div>
-                          <img className="img-type" src={data.chibiImg.awaken} alt="awaken"/>
-                          </div>
-                          <div>
-                          <img className="img-type" src={data.chibiImg.dorm} alt="dorm"/>
+                        <img className="img-type" src={data.chibiImg.awaken} alt="awaken"/>
+                      </div>
+                      <div>
+                        <img className="img-type" src={data.chibiImg.avatar} alt="avatar"/>
+                      </div>
+                      <div>
+                        <img className="img-type" src={data.chibiImg.dorm} alt="dorm"/>
                       </div>
                   </div>
                 </div>
@@ -127,7 +131,16 @@ function ConstrDetail({data}) {
             </div>
           </Tab>
           <Tab eventKey="gallery" title="Gallery">
-            ....
+            <Tabs defaultActiveKey={1} id="coating-tab" className='mt-2'>
+            {
+              data.coating.map(item=>(
+                <Tab key={item.id} eventKey={item.id} title={item.name}>
+                  <Image className='mx-auto d-block' fluid={true} src={item.img} alt={item.name} />
+                </Tab>
+              )
+              )
+            }
+            </Tabs>
           </Tab>
           <Tab eventKey="contact" title="Info" >
             ....

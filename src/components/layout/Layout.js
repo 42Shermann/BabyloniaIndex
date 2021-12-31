@@ -1,6 +1,9 @@
 import React from 'react';
 import './Layout.css';
 import { Outlet } from 'react-router-dom';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
 import SideBar from '../Sidebar/sideBar';
 import Search from '../Search/Search'
 
@@ -15,16 +18,16 @@ function Layout() {
           </h2>
           <Search />
         </nav>
-        <div className="container-fluid">
-          <div className="row ">
-            <div className="col-12 col-lg-2">
+        <Container fluid>
+          <Row>
+            <Col xs={12} lg={2}>
               <SideBar />
-            </div>
-            <div className="col-12 col-lg-10">
+            </Col>
+            <Col xs={12} lg={10}>
                 <Outlet />
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
         </div>
         <footer className='footer-styles'>
             <p>© 2018 Gandalf</p>

@@ -102,7 +102,7 @@ function WeaponList() {
                         <td>
                             <Link className="styledLink" to={`/detail/${data.const.cID}`}>
                             <div className='row'>
-                                <img src={data.const.img} alt={data.const.Model} className='weapon-img-thumb' />
+                                <img src={data.const.chibiImg.avatar} alt={data.const.Model} className='weapon-img-thumb' />
                             </div>
                             <div className='row'>
                                 <p className='text-center'>{data.const.Model}</p>

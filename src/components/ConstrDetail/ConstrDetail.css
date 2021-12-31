@@ -28,9 +28,8 @@
 .icon-container {
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: space-around;
   align-content: center;
-  gap: 25%;
 }
 
 .img-type {

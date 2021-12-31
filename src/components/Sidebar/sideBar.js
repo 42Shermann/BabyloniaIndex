@@ -11,7 +11,7 @@ function SideBar() {
                                 <NavProp nav={"home"}/>
                             </div>
                             <div className='col-6'>
-                                <NavProp nav={"detail"}/>
+                                <NavProp nav={"characters"}/>
                             </div>
                         </div>
                         <div className='row mt-3'>
