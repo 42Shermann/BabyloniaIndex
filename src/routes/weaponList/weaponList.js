@@ -67,15 +67,16 @@ function WeaponList() {
                 </Accordion>
             </div>
             {wepType.length === 0 && loading ?
+
             <div className="text-center">
                 <Spinner animation="border" variant="light" />
             </div>
             :
             <>
             {wepType.map(((type, index) =>(
-            <>
+            <div className='mb-4'>
             <h3 id={type} className="text-white" key={index}>{type}</h3>
-            <Table className='scrollBar-hidden' responsive>
+            <Table className='scrollBar-hidden' responsive='sm'>
                 <thead>
                     <tr className="bg-danger">
                         <th>Weapon</th>
@@ -85,27 +86,27 @@ function WeaponList() {
                         <th>Signature</th>
                     </tr>
                 </thead>
-                <tbody className="text-white">
+                <tbody className="text-white ">
                     {DATA.filter(data => data.type === type).map(data =>(
                     <tr className='align-middle' key={data.id}>
                         <td>
                             <div className='row'>
-                                <img src={data.img} alt={data.name} className='weapon-img-thumb' />
+                                <img src={data.img} alt={data.name} className='img-fluid mx-auto d-block weapon-img-thumb' />
                             </div>
                             <div className='row'>
                                 <p className='text-center'>{data.name}</p>
                             </div>
                         </td>
-                        <td>{data.ability}</td>
+                        <td className='limit-width'>{data.ability}</td>
                         <td>{data.atk}</td>
                         <td>{data.crit}</td>
-                        <td>
-                            <Link className="styledLink" to={`/detail/${data.const.cID}`}>
+                        <td className='avatar-container'>
+                            <Link className="styledLink avatar-text" to={`/characters/${data.const.cID}`}>
                             <div className='row'>
-                                <img src={data.const.chibiImg.avatar} alt={data.const.Model} className='weapon-img-thumb' />
+                                <img className='img-fluid mx-auto d-block weapon-img-thumb' src={data.const.chibiImg.avatar} alt={data.const.Model} />
                             </div>
-                            <div className='row'>
-                                <p className='text-center'>{data.const.Model}</p>
+                            <div className='row mt-2'>
+                                <p className='text-center avatar-text'>{data.const.Model}</p>
                             </div>
                             </Link>
                         </td>
@@ -113,7 +114,7 @@ function WeaponList() {
                     ))}
                 </tbody>
             </Table>
-            </>
+            </div>
             )))}
             </>
             }

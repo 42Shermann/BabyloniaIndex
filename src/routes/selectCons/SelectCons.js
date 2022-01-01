@@ -65,12 +65,15 @@ function SelectCons() {
                     <option value={''}>All</option>
                     <option value={'Attacker'}>Attacker</option>
                     <option value={'Tank'}>Tank</option>
+                    <option value={'Support'}>Support</option>
+                    <option value={'Amplifier'}>Amplifier</option>
+                    <option value={'Pioneer'}>Pioneer</option>
                 </Form.Select>
                 </Col>
             </Row>
             </Container>
-            {RANK.map(item => (
-            <div>
+            {RANK.map((item, index) => (
+            <div key={index}>
                 <h5 className="text-white">{item.rank}</h5>
                 <Cards data={queryData
                     .filter(data => data.rank === item.rank)

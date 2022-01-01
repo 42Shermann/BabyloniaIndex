@@ -135,7 +135,9 @@ function ConstrDetail({data}) {
             {
               data.coating.map(item=>(
                 <Tab key={item.id} eventKey={item.id} title={item.name}>
-                  <Image className='mx-auto d-block' fluid={true} src={item.img} alt={item.name} />
+                  <div className='d-flex justify-content-center coating-container'>
+                    <Image className='mx-auto d-block' fluid={true} src={item.img} alt={item.name} />
+                  </div>
                 </Tab>
               )
               )

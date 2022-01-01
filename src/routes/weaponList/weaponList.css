@@ -4,6 +4,14 @@
   max-height: 100%;
 }
 
+.avatar-container {
+  max-width: 150px;
+}
+
+.avatar-text:hover {
+  color: red;
+}
+
 .panel-header button {
   border: none;
   background: black;
@@ -18,11 +26,7 @@
   border-width: 2px;
 }
 
-.styledLink,
-.styledLink:hover {
-  color: white;
-}
-
-.scrollBar-hidden {
-  overflow: hidden; /* Hide scrollbars */
+.limit-width {
+  min-width: 300px;
+  max-width: 550px;
 }
