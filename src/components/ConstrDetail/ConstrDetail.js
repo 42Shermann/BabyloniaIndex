@@ -145,7 +145,7 @@ function ConstrDetail({data}) {
             </Tabs>
           </Tab>
           <Tab eventKey="contact" title="Info" >
-            Under construction!
+            <p className='text-center my-4 display-6'>Under construction!</p>
           </Tab>
         </Tabs>
       </div>
