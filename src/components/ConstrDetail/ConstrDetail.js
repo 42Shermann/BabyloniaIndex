@@ -30,7 +30,7 @@ function ConstrDetail({data}) {
     const RenderElement = 
         data.element.map((value, index) =>
           (
-            <ElementComponent id={index} values={value} />
+            <ElementComponent key={index} values={value} />
           )
         )
 
@@ -145,7 +145,7 @@ function ConstrDetail({data}) {
             </Tabs>
           </Tab>
           <Tab eventKey="contact" title="Info" >
-            ....
+            Under construction!
           </Tab>
         </Tabs>
       </div>

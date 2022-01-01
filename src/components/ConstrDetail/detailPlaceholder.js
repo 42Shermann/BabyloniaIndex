@@ -1,5 +1,4 @@
 import React from 'react';
-import Spinner from 'react-bootstrap/esm/Spinner';
 import Placeholder from 'react-bootstrap/Placeholder'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
@@ -76,7 +75,11 @@ function DetailPlaceholder() {
                       </Placeholder>
                     </div>
               </div>
-                <div className="col-12 col-md-6 border-top border-md-start border-white">
+                <div className="col-12 col-md-6  divider">
+                  <div className='row'>
+                    {/*Fake Chart */}
+                    <div className='loading-image mx-2' style={{height:'300px'}} />
+                  </div>
                     <div className="row text-center">
                         <div className="col ">
                           {/*HP */}
@@ -144,16 +147,15 @@ function DetailPlaceholder() {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-4 col-xm-12">
-                <div className='text-center'>
-                <Spinner variant='white' animation='glow' />
-                </div>
+              <div className="col-md-4 col-xm-12">
+                {/*Fake Image */}
+                <div className='loading-image' style={{height:'300px'}} />
                 <div className="spec-bg text-white">
                 <div className="py-4">
-                  <div className="icon-container">
-                  <Placeholder as="p" animation="glow">
-                      <Placeholder xs={12}/>
-                  </Placeholder>
+                  <div className="icon-container" >
+                    <div className='loading-image' style={{height:'90px', width:'90px', backgroundColor:'black'}}/>
+                    <div className='loading-image' style={{height:'90px', width:'90px', backgroundColor:'black'}}/>
+                    <div className='loading-image' style={{height:'90px', width:'90px', backgroundColor:'black'}}/>
                   </div>
                 </div>
                 <div className="">
@@ -178,10 +180,10 @@ function DetailPlaceholder() {
                 </div>
                 </div>
               </div>
-              <div className="col-lg-8 col-xm-12">
+              <div className="col-md-8 col-xm-12">
                 <PHStats />
               </div>
-              <div className="col-lg-8 col-xm-12">
+              <div className="col-md-8 col-xm-12">
                 <Placeholder as={'p'} />
               </div>
             </div>

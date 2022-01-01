@@ -12,15 +12,15 @@ function TabComp( {props} ) {
                 <div className="col-12 col-lg-2">
                     <img className="img-fluid mx-auto d-block" src={data.img} alt={data.name}/>
                 </div>
-            <div className="col-12 col-lg-10">
+                <div className="col-12 col-lg-10 ms-2 ms-lg-0">
                 <div className="row mt-1">
                     <h3 className="text-white">
                         {data.name}
                     </h3>
                 </div>
                 <div className="row">
-                    <p className='new-line-text'>
-                    {data.skillDesc.split('\n').map ((item, i) => <p key={i}>{item}</p>)}
+                    <p className='new-line-text '>
+                    {data.skillDesc}
                     </p>
                 </div>
             </div>
@@ -32,7 +32,7 @@ function TabComp( {props} ) {
 
     return (
         <div>
-                <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+                <Tabs defaultActiveKey={1} id={`${props}`}>
                     {skillList}
                 </Tabs>
 

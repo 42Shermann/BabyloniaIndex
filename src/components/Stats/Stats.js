@@ -17,7 +17,7 @@ function Stats({ info, statDetails, tag }) {
                 <div className="mb-4 border border-top border-white" />
             </div>
             <div className="row my-4">
-                <div className="col-12 col-md-6">
+                <div className="col-12 col-md-6 mb-4 mb-md-0">
                     <div className="row">
                         <strong>Service Time</strong>
                         <p>{serviceTime}</p>

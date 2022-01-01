@@ -6,7 +6,7 @@
   border-left: 2px solid white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .divider {
     border-top: 2px solid white;
     border-left: none;

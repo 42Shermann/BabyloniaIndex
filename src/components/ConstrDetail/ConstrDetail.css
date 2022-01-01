@@ -44,3 +44,28 @@
   max-width: 100%;
   height: 35vw;
 }
+
+@media (max-width: 768px) {
+  .coating-container {
+    height: 100vw;
+  }
+}
+
+/*Animation for placeholder loading*/
+.loading-image {
+  background: linear-gradient(-45deg, #666666, #333333, #000000);
+  background-size: 400% 400%;
+  animation: gradient 2s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
