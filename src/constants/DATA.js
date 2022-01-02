@@ -67,7 +67,7 @@ const ELEMENTS = [
     },
     {
         id:4,
-        name:'Lighting',
+        name:'Lightning',
         img:'https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640846977/icon/elements/38px-Element-Lightning-Icon-White_ntimlv.png'
     },
     {
