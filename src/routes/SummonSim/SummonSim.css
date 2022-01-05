@@ -1,0 +1,24 @@
+.sim-container {
+  width: 80%;
+  height: 100vh;
+  background-color: white;
+}
+
+.summon-btn {
+  width: 100%;
+  height: 50px;
+  background-color: red;
+  color: black;
+}
+
+.item-container {
+  width: 100%;
+  height: 90px;
+  border: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.p {
+  vertical-align: middle;
+}

@@ -21,6 +21,7 @@
     "react-scripts": "4.0.3",
     "realm-web": "^1.5.1",
     "sass": "^1.43.4",
+    "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
@@ -53,6 +54,12 @@
     "@babel/plugin-proposal-logical-assignment-operators": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.28.0",
     "webpack": "^4.44.2"
   }
 }

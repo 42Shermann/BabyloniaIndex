@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-const RealmAppContext = React.createContext();
+const RealmAppContext = React.createContext()
 
 export const useRealmApp = () => {
-    const app = React.useContext(RealmAppContext);
-    if (!app) {
-      throw new Error(
-        `You must call useRealmApp() inside of a <RealmAppProvider />`
-      );
-    }
-    return app;
-  };
+  const app = React.useContext(RealmAppContext)
+  if (!app) {
+    throw new Error(
+      'You must call useRealmApp() inside of a <RealmAppProvider />'
+    )
+  }
+  return app
+}
 
 export const RealmAppProvider = ({ children }) => {
+  const [isLoading, setLoad] = useState(true)
+  const wrapped = { isLoading, setLoad }
 
-  const [isLoading, setLoad] = useState(true);
-     
-
-  const wrapped = { isLoading, setLoad };
-
-    return (
-      <RealmAppContext.Provider value={wrapped}>
-        {children}
-      </RealmAppContext.Provider>
-    );
-  };
+  return (
+    <RealmAppContext.Provider value={wrapped}>
+      {children}
+    </RealmAppContext.Provider>
+  )
+}
