@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import ConstrDetail from '../../components/ConstrDetail/CharacterDetailComponent'
-import DetailPlaceholder from '../../components/ConstrDetail/DetailPlaceholder'
+import ConstrDetail from '../../components/CharacterDetailComponent/CharacterDetailComponent'
+import DetailPlaceholder from '../../components/CharacterDetailComponent/DetailPlaceholder'
 import api from '../../services/api'
-import './CharsDetail.css'
 
 function CharsDetail () {
   const navigate = useNavigate()

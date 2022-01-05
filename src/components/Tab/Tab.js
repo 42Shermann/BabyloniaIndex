@@ -1,5 +1,5 @@
 import React from 'react'
-import './Tab.css'
+import { StyledTab } from './style'
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 
@@ -28,11 +28,11 @@ function TabComp ({ props }) {
   )
 
   return (
-  <div>
+  <StyledTab>
     <Tabs defaultActiveKey={1} id={`${props}`}>
       {skillList}
     </Tabs>
-  </div>
+  </StyledTab>
   )
 }
 

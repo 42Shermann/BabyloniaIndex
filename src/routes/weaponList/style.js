@@ -26,26 +26,26 @@ export const StyledTable = styled.div`
 & .table th {
     color: white;
 }
+& .table td {
+    font-size: 16px;
+}
+& .table .limit-width {
+  min-width: 300px;
+  max-width: 550px;
+}
 & .weapon-img-thumb {
   object-fit: contain; /* keep aspect ratio */
   width: 150px;
   max-height: 100%;
 }
-&
-.avatar-container {
-  max-width: 150px;
-  color: white;
-}
-`
-
-export const LimitWidth = styled.td`
-  min-width: 300px;
-  max-width: 550px;
 `
 
 export const StyledLink = styled(Link)`
-  color: white;
-  & :hover {
-    color: red;
-  }
+    color: white;
+    &:hover{
+      color: red;
+    }
+    &:active{
+      color: red;
+    }
 `

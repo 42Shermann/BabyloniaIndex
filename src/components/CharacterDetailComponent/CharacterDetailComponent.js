@@ -6,6 +6,7 @@ import { getRank, getType, getFaction, getGift, getElement } from '../../constan
 import TabComp from '../Tab/Tab'
 import Stats from '../Stats/Stats'
 import './ConstrDetail.css'
+import { StyledTab } from '../Tab/style'
 
 function ConstrDetail ({ data }) {
   const tag = {
@@ -38,7 +39,7 @@ function ConstrDetail ({ data }) {
       <div>
         <div className="h1 text-white text-center text-bold">{data.name} : {data.Model}</div>
       </div>
-      <div>
+      <StyledTab>
         <Tabs defaultActiveKey="overview" id="uncontrolled-tab-example" className="main-tab" >
           <Tab eventKey="overview" title="Overview">
             <div className="row">
@@ -147,7 +148,7 @@ function ConstrDetail ({ data }) {
             <p className='text-center my-4 display-6'>Under construction!</p>
           </Tab>
         </Tabs>
-      </div>
+      </StyledTab>
           <div className="row">
             <div className="mb-4 border border-top border-white" />
           </div>

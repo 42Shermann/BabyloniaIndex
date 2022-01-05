@@ -6,7 +6,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Table from 'react-bootstrap/Table'
 import Spinner from 'react-bootstrap/esm/Spinner'
-import { StyledAccordion, StyledTable, StyledLink, LimitWidth } from './style'
+import { StyledAccordion, StyledTable, StyledLink } from './style'
 
 function WeaponList () {
   const [loading, setLoading] = useState(true)
@@ -44,7 +44,7 @@ function WeaponList () {
         <h2>Weapons List</h2>
       </div>
       <StyledAccordion className='mb-4'>
-        <Accordion primary flush>
+        <Accordion flush>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Contents</Accordion.Header>
           <Accordion.Body>
@@ -92,7 +92,7 @@ function WeaponList () {
                 <p className='text-center'>{data.name}</p>
               </div>
             </td>
-            <LimitWidth className='limit-width'>{data.ability}</LimitWidth>
+            <td className='limit-width'>{data.ability}</td>
             <td>{data.atk}</td>
             <td>{data.crit}</td>
             <td className='avatar-container'>

@@ -2,6 +2,7 @@ import React from 'react'
 import Placeholder from 'react-bootstrap/Placeholder'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
+import { StyledTab } from '../Tab/style'
 
 function DetailPlaceholder () {
   const PHStats = () => {
@@ -130,7 +131,7 @@ function DetailPlaceholder () {
       <Placeholder xs={6} />
     </Placeholder>
     </div>
-    <div>
+    <StyledTab>
     <Tabs defaultActiveKey="overview" id="uncontrolled-tab-example" className="main-tab" >
       <Tab eventKey="overview" title="Overview">
       <div className="row">
@@ -193,7 +194,7 @@ function DetailPlaceholder () {
       ....
       </Tab>
     </Tabs>
-    </div>
+    </StyledTab>
       <div className="row">
       <div className="mb-4 border border-top border-white" />
       </div>
