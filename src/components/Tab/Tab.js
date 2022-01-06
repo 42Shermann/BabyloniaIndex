@@ -10,7 +10,7 @@ function TabComp ({ props }) {
     <div className="col-12 col-lg-2">
       <img className="img-fluid mx-auto d-block" src={data.img} alt={data.name}/>
     </div>
-    <div className="col-12 col-lg-10 mx-2 mx-lg-0">
+    <div className="col-12 col-lg-10">
     <div className="row mt-1">
       <h3 className="text-white">
       {data.name}

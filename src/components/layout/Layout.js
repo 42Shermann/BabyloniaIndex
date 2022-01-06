@@ -1,4 +1,5 @@
 import React from 'react'
+import { GlobalStyle } from './style'
 import './Layout.css'
 import { Outlet } from 'react-router-dom'
 import Row from 'react-bootstrap/Row'
@@ -21,7 +22,9 @@ function Layout () {
         <SideBar />
       </Col>
       <Col xs={12} lg={10}>
-        <Outlet />
+        <GlobalStyle>
+          <Outlet />
+        </GlobalStyle>
       </Col>
       </Row>
     </Container>

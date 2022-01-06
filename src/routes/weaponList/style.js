@@ -26,9 +26,6 @@ export const StyledTable = styled.div`
 & .table th {
     color: white;
 }
-& .table td {
-    font-size: 16px;
-}
 & .table .limit-width {
   min-width: 300px;
   max-width: 550px;

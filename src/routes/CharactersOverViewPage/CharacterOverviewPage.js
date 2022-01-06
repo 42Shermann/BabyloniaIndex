@@ -1,12 +1,37 @@
 import React from 'react'
+import styled from 'styled-components'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 
 function CharsOverview () {
+  const StyledTab = styled.div`
+.nav-tabs {
+  border-bottom: #921131 solid;
+}
+
+.nav-tabs .nav-link {
+  color: white;
+  text-decoration: solid;
+  background-color: transparent;
+  border: #921131 solid;
+  border-bottom: none;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  border-bottom: none;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #ad3a57;
+}
+`
   const TabOverview = () => {
     return (
-      <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3">
-        <Tab eventKey="home" title="All Character">
+      <Tabs defaultActiveKey="construct" id="overview-tab" className="mb-3">
+        <Tab eventKey="construct" title="All Character">
         </Tab>
         <Tab eventKey="overview" title="Overview">
           <h3 className="text-white bg-danger text-center">Construct Overview</h3>
@@ -54,9 +79,9 @@ function CharsOverview () {
   return (
     <div className="container-fluid bg-color">
       <h2>Characters List</h2>
-      <div>
+      <StyledTab>
         <TabOverview />
-      </div>
+      </StyledTab>
     </div>
   )
 }
