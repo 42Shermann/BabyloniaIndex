@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Stack, Button } from 'react-bootstrap'
 import './SummonSim.css'
 
 const INITIAL_ARRAY = []
@@ -13,6 +13,8 @@ function SummonSim () {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
+  // Tower of DOOOOM
+  // Will rewrite one day, sorry
   function getItem (int) {
     if (int < 400) {
       return 'Signature Weapon'
@@ -38,11 +40,11 @@ function SummonSim () {
   }
 
   function doGacha () {
-    const array = INITIAL_ARRAY
+    const array = [...INITIAL_ARRAY]
     for (let i = 0; i < 10; i++) {
       const int = getRandomInt(10000, 0)
       const item = getItem(int)
-      if (i === 9 && !currentItem.includes('5* Weapon' && 'Off-rate 5* Weapon 1' && 'Off-rate 5* Weapon 2')) {
+      if (i === 9 && !currentItem.includes('5* Weapon' || 'Off-rate 5* Weapon 1' || 'Off-rate 5* Weapon 2')) {
         array.push('5* Weapon')
       } else {
         array.push(item)
@@ -50,41 +52,31 @@ function SummonSim () {
     }
     return array
   }
-
+  /*
   const clearArray = () => {
-    setItem([])
+    setItem([...INITIAL_ARRAY])
   }
-
+  */
   function handleSummonClick () {
     const allItem = doGacha()
-    setItem( // Replace the state
-      [ // with a new array
-        ...allItem
-      ]
-    )
+    setItem([...allItem])
   }
   return (
     <div className='mb-4'>
       <h2>Summon Simulator</h2>
-      <div className='sim-container mx-auto d-flex align-items-center p-2'>
-        <div className="summon-btn text-center align-self-start">
-          <p onClick={ () => handleSummonClick()} className='align-middle lead'>Summon</p>
-          <div className='summon-btn'>
-            <p onClick={() => clearArray()}>Reset</p>
-          </div>
-          <div className='py-2'>
-            <Row className='gx-2'>
-              {currentItem.map(item => (
-                <Col key={item} className='mb-2' xs={6}>
-                    <div className='item-container'>
-                    <p>{item}</p>
-                    </div>
-                </Col>
-              )
-              )}
+      <div className='sim-container mx-auto p-2'>
+        <Stack>
+          <Button className='' variant="outline-danger" onClick={() => handleSummonClick()}>Summon</Button >
+          <div className='mt-2 px-3'>
+            <Row xs={6}>
+              {currentItem.map((item, index) => (
+              <Col className='item-container text-center' key={index}>
+                <p>{item}</p>
+              </Col>
+              ))}
             </Row>
           </div>
-        </div>
+        </Stack>
       </div>
     </div>
   )
