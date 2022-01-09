@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router'
 import api from '../../services/api'
 import { RANK } from '../../constants/DATA'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
-import Spinner from 'react-bootstrap/Spinner'
-import Form from 'react-bootstrap/Form'
+import { Stack, Spinner, Form } from 'react-bootstrap'
 import './SelectCons.css'
 import Cards from '../../components/Cards/Cards'
 
@@ -50,15 +46,14 @@ function SelectCons () {
     </div>
     {!loading
       ? <div>
-      <Container>
-      <Row className="mb-3 search-bar">
-        <Col xs={6} md={2}>
+      <Stack direction='horizontal' gap={2}>
+        <div>
           <Form.Group>
             <Form.Label visuallyHidden={true}>Search for construct</Form.Label>
             <Form.Control type="email" placeholder="Construct Search" onChange={event => setQuery(event.target.value)} />
           </Form.Group>
-        </Col>
-        <Col xs={6} md={2}>
+        </div>
+        <div>
         <Form.Group>
           <Form.Label visuallyHidden={true}>Type filter</Form.Label>
           <Form.Select onChange={event => setType(event.target.value)}>
@@ -70,11 +65,10 @@ function SelectCons () {
             <option value={'Pioneer'}>Pioneer</option>
           </Form.Select>
         </Form.Group>
-        </Col>
-      </Row>
-      </Container>
+        </div>
+      </Stack>
       {RANK.map((item, index) => (
-      <div key={index} className='mb-2'>
+      <div key={index} className='my-2'>
         <h5 className="text-white">{item.rank}</h5>
         <Cards data={queryData
           .filter(data => data.rank === item.rank)

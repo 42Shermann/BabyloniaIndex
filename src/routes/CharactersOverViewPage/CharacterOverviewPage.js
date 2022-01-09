@@ -5,28 +5,28 @@ import Tabs from 'react-bootstrap/Tabs'
 
 function CharsOverview () {
   const StyledTab = styled.div`
-.nav-tabs {
-  border-bottom: #921131 solid;
-}
+  .nav-tabs {
+    border-bottom: #921131 solid;
+  }
 
-.nav-tabs .nav-link {
-  color: white;
-  text-decoration: solid;
-  background-color: transparent;
-  border: #921131 solid;
-  border-bottom: none;
-}
+  .nav-tabs .nav-link {
+    color: white;
+    text-decoration: solid;
+    background-color: transparent;
+    border: #921131 solid;
+    border-bottom: none;
+  }
 
-.nav-tabs .nav-link.active {
-  background-color: black;
-  color: white;
-  font-weight: bolder;
-  border-bottom: none;
-}
+  .nav-tabs .nav-link.active {
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+    border-bottom: none;
+  }
 
-.nav-tabs .nav-link:hover {
-  color: #ad3a57;
-}
+  .nav-tabs .nav-link:hover {
+    color: #ad3a57;
+  }
 `
   const TabOverview = () => {
     return (

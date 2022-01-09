@@ -15,8 +15,8 @@ function IndexRoute () {
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="characters" element={<SelectCons />} >
-            <Route index element={<CharsOverview />} />
-            <Route path=":userId" element={<CharsDetail />} />
+          <Route index element={<CharsOverview />} />
+          <Route path=":userId" element={<CharsDetail />} />
         </Route>
         <Route path="weapons" element={<WeaponList />} />
         <Route path="sim" element={<SummonSim />} />
