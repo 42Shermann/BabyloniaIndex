@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { COLOUR } from '../../constants'
 
 function Nav (props) {
@@ -25,7 +25,7 @@ function Nav (props) {
   return (
     <StyledWrap>
       <nav className="btn-nav text-capitalize text-center" >
-        <NavLink className="styledLink" to={`/${props.nav}`} >{props.nav}</NavLink>
+        <Link onClick={props.handleClick} className="styledLink" to={`/${props.nav}`} >{props.nav}</Link>
       </nav>
     </StyledWrap>
   )

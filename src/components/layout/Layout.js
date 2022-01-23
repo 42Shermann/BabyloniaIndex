@@ -1,38 +1,65 @@
-import React from 'react'
-import { GlobalStyle } from './style'
-import './Layout.css'
+import React, { useState } from 'react'
+import { GlobalStyle, StyledBG, StyledNavbar, StyledFooter } from './style'
 import { Outlet } from 'react-router-dom'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/Container'
+import { Row, Col, Container, Navbar, Offcanvas } from 'react-bootstrap'
+import { isMobile } from 'react-device-detect'
 import SideBar from '../Sidebar/sideBar'
 
 function Layout () {
+  const [show, setShow] = useState(false)
+  const handleCloseOffcanvas = () => setShow(false)
   return (
-    <>
-    <div className='app-bg text-white'>
-    <nav className="navbar navbar-dark bg-secondary text-white mb-4" >
-      <h2 className="mx-3">
-      Babylonia Index
-      </h2>
-    </nav>
-    <Container fluid>
-      <Row>
-      <Col xs={12} lg={2}>
-        <SideBar />
-      </Col>
-      <Col xs={12} lg={10}>
-        <GlobalStyle>
-          <Outlet />
-        </GlobalStyle>
-      </Col>
-      </Row>
-    </Container>
-    </div>
-    <footer className='footer-styles'>
-      <p>© 2018 Gandalf</p>
-    </footer>
-    </>
+    <GlobalStyle>
+      <StyledBG>
+      <StyledNavbar className="mb-4">
+        <Navbar expand={false}>
+            <p className="h2 align-middle mx-3">
+              Babylonia Index
+            </p>
+          {isMobile
+            ? <>
+              <Navbar.Toggle onClick={() => setShow(true)} aria-controls="offcanvasNavbar" />
+              <Navbar.Offcanvas
+                id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"
+                placement="end"
+                show={show}
+                onHide={handleCloseOffcanvas}
+              >
+              <StyledBG>
+              <Offcanvas.Header closeButton closeVariant="white"/>
+              <Offcanvas.Body>
+                <SideBar handleClick={handleCloseOffcanvas}/>
+              </Offcanvas.Body>
+              </StyledBG>
+              </Navbar.Offcanvas>
+              </>
+            : <></>
+          }
+        </Navbar>
+        </StyledNavbar>
+      <Container fluid>
+        <Row>
+          {!isMobile
+            ? <>
+            <Col lg={2}>
+              <SideBar />
+            </Col>
+            <Col lg={10}>
+              <Outlet />
+            </Col>
+            </>
+            : <Col>
+              <Outlet />
+            </Col>
+          }
+        </Row>
+      </Container>
+      </StyledBG>
+      <StyledFooter>
+        <p>© 2018 Gandalf</p>
+      </StyledFooter>
+    </GlobalStyle>
   )
 }
 
