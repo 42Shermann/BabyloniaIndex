@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { COLOUR } from '../../constants'
 
 export const StyledAccordion = styled.div`
 & .accordion-button.collapsed {
@@ -25,6 +26,7 @@ export const StyledAccordion = styled.div`
 export const StyledTable = styled.div`
 & .table th {
     color: white;
+    background-color: ${COLOUR.red};
 }
 & .table .limit-width {
   min-width: 300px;

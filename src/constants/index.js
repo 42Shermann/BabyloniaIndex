@@ -1,3 +1,3 @@
-import image from "./image";
+import { COLOUR } from './theme'
 
-export { image };
+export { COLOUR }

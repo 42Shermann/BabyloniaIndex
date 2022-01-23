@@ -40,15 +40,15 @@ function SummonSim () {
       return 'Overclock mat'
     }
   }
-  // check if the 10 rolls contains at least 5* weapon or not
-  const checkTenRollsPity = (input) => testArr.includes(input)
+
+  const checkPity = (input) => testArr.includes(input)
 
   function doGacha () {
     const array = [...INITIAL_ARRAY]
     for (let i = 0; i < 10; i++) {
       const int = getRandomInt(0, 10000)
       const item = getItem(int)
-      if (i === 9 && !(array.some(checkTenRollsPity))) {
+      if (i === 9 && !(array.some(checkPity))) {
         array.push('5* Weapon')
       } else {
         array.push(item)
@@ -56,11 +56,12 @@ function SummonSim () {
     }
     return array
   }
-  /*
+
   const clearArray = () => {
     setItem([...INITIAL_ARRAY])
+    setCount(0)
   }
-  */
+
   function handleSummon () {
     const allItem = doGacha()
     setItem([...allItem])
@@ -71,10 +72,19 @@ function SummonSim () {
       <h2>Summon Simulator</h2>
       <div className='sim-container mx-auto p-2'>
         <Stack>
-          <Button className='' variant="outline-danger" onClick={() => handleSummon()}>Summon</Button >
+          <Stack direction='horizontal' gap={1}>
+            <Button className='widget-container' variant="outline-danger" onClick={() => handleSummon()}>Summon</Button >
+            <Button className='widget-container' variant="outline-danger" onClick={() => clearArray()}>Reset</Button >
+          </Stack>
           <Stack direction='horizontal' gap={3} className='text-black my-2 '>
-            <p>Summon Count</p>
-            <p>{countSummon}</p>
+            <div className='widget-container text-center'>
+              <p>Summon Count</p>
+              <p>{countSummon}</p>
+            </div>
+            <div className='widget-container text-center'>
+              <p>Total estimated USD spent</p>
+              <p>{(countSummon * 4.18).toFixed(2)}$</p>
+            </div>
           </Stack>
           <div className='px-3'>
             <Row xs={6}>

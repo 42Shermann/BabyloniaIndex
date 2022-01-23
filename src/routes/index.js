@@ -6,6 +6,7 @@ import Layout from '../components/layout/Layout'
 import NotFound from './error/NotFound'
 import CharsOverview from './CharactersOverViewPage/CharacterOverviewPage'
 import WeaponList from './weaponList/weaponList'
+import MemoriesPage from './MemoriesPage/MemoriesPage'
 import SummonSim from './SummonSim/SummonSim'
 
 function IndexRoute () {
@@ -19,6 +20,7 @@ function IndexRoute () {
           <Route path=":userId" element={<CharsDetail />} />
         </Route>
         <Route path="weapons" element={<WeaponList />} />
+        <Route path="memories" element={<MemoriesPage />} />
         <Route path="sim" element={<SummonSim />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLOUR } from '../../constants'
 
 export const StyledTab = styled.div`
 .nav-tabs {
@@ -8,7 +9,7 @@ export const StyledTab = styled.div`
 .nav-tabs .nav-link {
   color: white;
   text-decoration: solid;
-  background-color: #921131;
+  background-color: ${COLOUR.red};
   border: none;
   border-radius: 0px;
 }
