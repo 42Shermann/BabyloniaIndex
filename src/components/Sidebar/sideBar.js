@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import NavProp from '../Nav/Nav'
 
 const mainList = [
-  'home', 'characters', 'weapons', 'memories', 'sim'
+  'home', 'characters', 'weapons', 'memory', 'sim'
 ]
 
 function SideBar ({ handleClick }) {

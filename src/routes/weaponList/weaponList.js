@@ -1,7 +1,7 @@
 /* eslint-disable no-extra-parens */
 import React, { useState, useEffect } from 'react'
 import { NavHashLink } from 'react-router-hash-link'
-import api from '../../services/api'
+import { api } from '../../config'
 import Accordion from 'react-bootstrap/Accordion'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Table from 'react-bootstrap/Table'

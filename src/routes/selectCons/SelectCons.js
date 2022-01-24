@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet } from 'react-router'
-import api from '../../services/api'
+import { api } from '../../config'
 import { RANK } from '../../constants/DATA'
 import { Stack, Spinner, Form } from 'react-bootstrap'
 import { Cards } from '../../components'
