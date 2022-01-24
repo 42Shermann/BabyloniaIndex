@@ -3,7 +3,7 @@ import { Outlet } from 'react-router'
 import api from '../../services/api'
 import { RANK } from '../../constants/DATA'
 import { Stack, Spinner, Form } from 'react-bootstrap'
-import Cards from '../../components/Cards/Cards'
+import { Cards } from '../../components'
 
 function SelectCons () {
   const [loading, setLoading] = useState(true)

@@ -24,9 +24,11 @@ function Nav (props) {
     `
   return (
     <StyledWrap>
-      <nav className="btn-nav text-capitalize text-center" >
-        <Link onClick={props.handleClick} className="styledLink" to={`/${props.nav}`} >{props.nav}</Link>
-      </nav>
+      <Link onClick={props.handleClick} className="styledLink" to={`/${props.nav}`} >
+        <nav className="btn-nav text-capitalize text-center" >
+          {props.nav}
+        </nav>
+      </Link>
     </StyledWrap>
   )
 }

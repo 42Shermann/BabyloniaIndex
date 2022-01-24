@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { useToggle } from '../../hooks'
 import { GlobalStyle, StyledBG, StyledNavbar, StyledFooter } from './style'
 import { Outlet } from 'react-router-dom'
 import { Row, Col, Container, Navbar, Offcanvas } from 'react-bootstrap'
 import { isMobile } from 'react-device-detect'
-import SideBar from '../Sidebar/sideBar'
+import { SideBar } from '..'
 
 function Layout () {
-  const [show, setShow] = useState(false)
-  const handleCloseOffcanvas = () => setShow(false)
+  const [isShow, setShow] = useToggle()
   return (
     <GlobalStyle>
       <StyledBG>
@@ -18,18 +18,18 @@ function Layout () {
             </p>
           {isMobile
             ? <>
-              <Navbar.Toggle onClick={() => setShow(true)} aria-controls="offcanvasNavbar" />
+              <Navbar.Toggle onClick={setShow} aria-controls="offcanvasNavbar" />
               <Navbar.Offcanvas
                 id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel"
                 placement="end"
-                show={show}
-                onHide={handleCloseOffcanvas}
+                show={isShow}
+                onHide={setShow}
               >
               <StyledBG>
               <Offcanvas.Header closeButton closeVariant="white"/>
               <Offcanvas.Body>
-                <SideBar handleClick={handleCloseOffcanvas}/>
+                <SideBar handleClick={setShow}/>
               </Offcanvas.Body>
               </StyledBG>
               </Navbar.Offcanvas>
