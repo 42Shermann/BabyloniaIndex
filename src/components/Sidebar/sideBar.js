@@ -8,7 +8,7 @@ const mainList = [
 
 function SideBar ({ handleClick }) {
   return (
-    <div fluid className='mb-4'>
+    <div className='mb-4'>
       <img src='https://res.cloudinary.com/dyfbbcvhc/image/upload/v1640447690/banner/main_tsh7e4.png' className='mx-auto d-block img-fluid' alt=""/>
         <h4 className="text-white text-center font-monospace">Main</h4>
             <Row xs={1} md={2} className='gx-2'>

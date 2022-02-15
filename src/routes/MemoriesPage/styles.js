@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { COLOUR } from '../../constants'
 
 export const TableWrapper = styled.div`
@@ -12,4 +13,13 @@ export const TableWrapper = styled.div`
       width: 100%;
       height: 100px;
   }
+`
+export const StyledLink = styled(Link)`
+    color: white;
+    &:hover{
+      color: red;
+    }
+    &:active{
+      color: red;
+    }
 `

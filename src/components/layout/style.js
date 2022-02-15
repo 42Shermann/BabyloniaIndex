@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { isMobile } from 'react-device-detect'
 import { COLOUR } from '../../constants'
 
 export const GlobalStyle = styled.div`
     color: white;
-    font-size: 16px;
+    font-size: ${!isMobile ? '16px' : '1rem'};
 &
     h1,
     h2 {

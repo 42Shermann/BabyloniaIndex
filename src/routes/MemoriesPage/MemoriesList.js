@@ -1,37 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { Tabs, Tab, Table, Spinner } from 'react-bootstrap'
+import { useAsync } from '../../hooks'
 import { api } from '../../config'
 import { TableWrapper } from './styles'
 
-function MemoriesList () {
-  const [isLoading, setLoading] = useState(true)
-  const [DATA, setData] = useState([])
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${api}/api/memory`, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-      const json = await response.json()
-      setData(json)
-      setLoading(false)
-    } catch (e) {
-      console.log(e)
+const fetchData = async () => {
+  const response = await fetch(`${api}/api/memory`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
     }
-  }
+  })
+  return await response.json()
+}
 
-  useEffect(() => {
-    fetchData()
-  }
-  , [])
+function MemoriesList () {
+  const { status, value } = useAsync(fetchData)
   return (
   <div>
   <h2>Memories</h2>
-    { !isLoading
+    { status === 'success'
       ? <Tabs defaultActiveKey="constructMem" id="memTypeTab" >
   <Tab eventKey="overview" title="Overview">
     ...
@@ -50,11 +40,11 @@ function MemoriesList () {
         </tr>
       </thead>
       <tbody>
-          { DATA.map((item, index) =>
+          { value.map((item, index) =>
             <tr className='styled-cell align-middle' key={index}>
                 <td>
                   <Link to={`/memory/${item.name}`}>
-                    <img className='img-fluid mx-auto d-block img-table' src={item.portrait.first} alt={item.name} />
+                    <img className='img-fluid mx-auto d-block img-table' src={item.portrait[0]} alt={item.name} />
                   </Link>
                 </td>
                 <td>

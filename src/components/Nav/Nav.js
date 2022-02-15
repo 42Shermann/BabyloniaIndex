@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { isMobile } from 'react-device-detect'
 import { Link } from 'react-router-dom'
 import { COLOUR } from '../../constants'
 
 function Nav (props) {
   const StyledWrap = styled.div`
     & .btn-nav {
+        height: ${isMobile ? '30px' : 'auto'};
         background-color: silver;
         border-radius: 0px;
         border: none;
@@ -25,7 +27,7 @@ function Nav (props) {
   return (
     <StyledWrap>
       <Link onClick={props.handleClick} className="styledLink" to={`/${props.nav}`} >
-        <nav className="btn-nav text-capitalize text-center" >
+        <nav className="btn-nav text-capitalize text-center align-middle" >
           {props.nav}
         </nav>
       </Link>
