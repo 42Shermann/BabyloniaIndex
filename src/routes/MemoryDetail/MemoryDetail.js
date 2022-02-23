@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Col, Row, Spinner, Table } from 'react-bootstrap'
-import { StyledTable, StyledHeader } from './style'
+import { StyledTable, StyledHeader, ImgContainer } from './style'
 import { api } from '../../config'
+import cloudEdit from '../../utils/CloudinaryImage'
 
 function MemoryDetail () {
   const navigate = useNavigate()
@@ -41,7 +42,11 @@ function MemoryDetail () {
       <div>
       {!isLoading
         ? <div>
-            <h2>{data.name}</h2>
+            <ImgContainer>
+              <h2 className='sr-only'>{data.name}</h2>
+              <img className='img-fluid mx-auto d-block' src={cloudEdit(data.portrait[0])} alt={data.name} />
+              <p className='centered display-3'>{data.name}</p>
+            </ImgContainer>
             <StyledTable>
             <Table className='text-white'>
               <thead>
