@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Row, Col, Stack, Button } from 'react-bootstrap'
-import './SummonSim.css'
+import { Stack, Button } from 'react-bootstrap'
+import styled from 'styled-components'
 
 const INITIAL_ARRAY = []
-const testArr = ['5* Weapon', 'Off-rate signature 1', 'Off-rate signature 2', 'Off-rate 5* Weapon 1', 'Off-rate 5* Weapon 2']
+const testArr = ['fiveStarWeapon', 'signatureOffRate1', 'signatureOffRate2', 'fiveStarOffRate1', 'fiveStarOffRate2']
 
 function SummonSim () {
   const [currentItem, setItem] = useState(INITIAL_ARRAY)
@@ -19,25 +19,25 @@ function SummonSim () {
   // Will rewrite one day, sorry
   function getItem (int) {
     if (int < 400) {
-      return 'Signature Weapon'
+      return 'signatureWeapon'
     } else if (int < 1600) {
-      return '5* Weapon'
+      return 'fiveStarWeapon'
     } else if (int < 1650) {
-      return 'Off-rate signature 1'
+      return 'signatureOffRate1'
     } else if (int < 1700) {
-      return 'Off-rate signature 2'
+      return 'signatureOffRate2'
     } else if (int < 1850) {
-      return 'Off-rate 5* Weapon 1'
+      return 'fiveStarOffRate1'
     } else if (int < 2000) {
-      return 'Off-rate 5* Weapon 2'
+      return 'fiveStarOffRate1'
     } else if (int < 5340) {
-      return '4* Weapon'
+      return 'fourStarWeapon'
     } else if (int < 8130) {
-      return '3* Weapon'
+      return 'threeStarWeapon'
     } else if (int < 9065) {
-      return 'Cog Box'
+      return 'cogBox'
     } else if (int >= 9065) {
-      return 'Overclock mat'
+      return 'overclockMat'
     }
   }
 
@@ -49,7 +49,7 @@ function SummonSim () {
       const int = getRandomInt(0, 10000)
       const item = getItem(int)
       if (i === 9 && !(array.some(checkPity))) {
-        array.push('5* Weapon')
+        array.push('fiveStarWeapon')
       } else {
         array.push(item)
       }
@@ -67,12 +67,53 @@ function SummonSim () {
     setItem([...allItem])
     setCount(n => n + 10)
   }
+
+  const handleColorType = color => {
+    switch (color) {
+      case 'signatureWeapon':
+      case 'signatureOffRate1':
+      case 'signatureOffRate2':
+        return 'red'
+      case 'fiveStarWeapon':
+      case 'fiveStarOffRate1':
+      case 'fiveStarOffRate2':
+        return 'orange'
+      case 'fourStarWeapon':
+        return 'purple'
+      default:
+        return 'blue'
+    }
+  }
+
+  const StyledWrapper = styled.div`
+  .widget-container {
+    width: 50%;
+  }
+
+  .sim-container {
+    width: 80%;
+    background-color: white;
+  }
+
+  .item-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  `
+  const StyledItemContainer = styled.div`
+    height: calc(80vh / 5);
+    box-shadow: 0px 0px 4px 3px ${({ color }) => handleColorType(color)} ;
+    animation: glower 1s infinite alternate;
+    color: black;
+  `
+
   return (
-    <div className='mb-4'>
+    <StyledWrapper className='mb-4'>
       <h2>Summon Simulator</h2>
-      <div className='sim-container mx-auto p-2'>
-        <Stack>
-          <Stack direction='horizontal' gap={1}>
+      <div className='sim-container mx-auto'>
+        <Stack >
+          <Stack className='m-2' direction='horizontal' gap={1}>
             <Button className='widget-container' variant="outline-danger" onClick={() => handleSummon()}>Summon</Button >
             <Button className='widget-container' variant="outline-danger" onClick={() => clearArray()}>Reset</Button >
           </Stack>
@@ -86,18 +127,16 @@ function SummonSim () {
               <p>{(countSummon * 4.18).toFixed(2)}$</p>
             </div>
           </Stack>
-          <div className='px-3'>
-            <Row xs={6}>
+          <div className='px-3 mb-2 item-wrapper'>
               {currentItem.map((item, index) => (
-              <Col className='item-container text-center' key={index}>
+              <StyledItemContainer color={item} className='item-container text-center' key={index}>
                 <p>{item}</p>
-              </Col>
+              </StyledItemContainer>
               ))}
-            </Row>
           </div>
         </Stack>
       </div>
-    </div>
+    </StyledWrapper>
   )
 }
 
