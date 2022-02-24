@@ -13,7 +13,7 @@ function MainRoute () {
           <Route path=":userId" element={<CharsDetail />} />
         </Route>
         <Route path="weapons" element={<WeaponList />} />
-        <Route path="memory" element={<MemoriesPage />} >
+        <Route path="memories" element={<MemoriesPage />} >
           <Route index element={<MemoriesList />} />
           <Route path=":memName" element={<MemoryDetail />} />
         </Route>
