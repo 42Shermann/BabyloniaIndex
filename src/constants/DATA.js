@@ -233,3 +233,4 @@ export function getGift(input) {
     gift => gift.type === input 
   );
 } 
+

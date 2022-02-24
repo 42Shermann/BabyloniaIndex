@@ -3,10 +3,10 @@ import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 import Image from 'react-bootstrap/Image'
 import { getRank, getType, getFaction, getGift, getElement } from '../../constants/DATA'
-import TabComp from '../Tab/Tab'
-import Stats from '../Stats/Stats'
+import TabComp from '../../components/Tab/Tab'
+import Stats from './Stats'
 import './ConstrDetail.css'
-import { StyledTab } from '../Tab/style'
+import { StyledTab } from '../../components/Tab/style'
 
 function ConstrDetail ({ data }) {
   const tag = {

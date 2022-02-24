@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ConstrDetail, DetailPlaceholder } from '../../components'
+import ConstrDetail from './CharacterDetailComponent'
+import DetailPlaceholder from './DetailPlaceholder'
 import { api } from '../../config'
 
 function CharsDetail () {

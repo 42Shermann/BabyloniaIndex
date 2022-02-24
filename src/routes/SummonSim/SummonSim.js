@@ -1,61 +1,11 @@
 import React, { useState } from 'react'
 import { Stack, Button } from 'react-bootstrap'
 import styled from 'styled-components'
-
-const INITIAL_ARRAY = []
-const testArr = ['fiveStarWeapon', 'signatureOffRate1', 'signatureOffRate2', 'fiveStarOffRate1', 'fiveStarOffRate2']
+import { doGacha, handleSummonPool, handleColorType, INITIAL_ARRAY } from './simFunction'
 
 function SummonSim () {
   const [currentItem, setItem] = useState(INITIAL_ARRAY)
   const [countSummon, setCount] = useState(0)
-
-  function getRandomInt (min, max) {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
-
-  // Tower of DOOOOM
-  // Will rewrite one day, sorry
-  function getItem (int) {
-    if (int < 400) {
-      return 'signatureWeapon'
-    } else if (int < 1600) {
-      return 'fiveStarWeapon'
-    } else if (int < 1650) {
-      return 'signatureOffRate1'
-    } else if (int < 1700) {
-      return 'signatureOffRate2'
-    } else if (int < 1850) {
-      return 'fiveStarOffRate1'
-    } else if (int < 2000) {
-      return 'fiveStarOffRate1'
-    } else if (int < 5340) {
-      return 'fourStarWeapon'
-    } else if (int < 8130) {
-      return 'threeStarWeapon'
-    } else if (int < 9065) {
-      return 'cogBox'
-    } else if (int >= 9065) {
-      return 'overclockMat'
-    }
-  }
-
-  const checkPity = (input) => testArr.includes(input)
-
-  function doGacha () {
-    const array = [...INITIAL_ARRAY]
-    for (let i = 0; i < 10; i++) {
-      const int = getRandomInt(0, 10000)
-      const item = getItem(int)
-      if (i === 9 && !(array.some(checkPity))) {
-        array.push('fiveStarWeapon')
-      } else {
-        array.push(item)
-      }
-    }
-    return array
-  }
 
   const clearArray = () => {
     setItem([...INITIAL_ARRAY])
@@ -68,31 +18,14 @@ function SummonSim () {
     setCount(n => n + 10)
   }
 
-  const handleColorType = color => {
-    switch (color) {
-      case 'signatureWeapon':
-      case 'signatureOffRate1':
-      case 'signatureOffRate2':
-        return 'red'
-      case 'fiveStarWeapon':
-      case 'fiveStarOffRate1':
-      case 'fiveStarOffRate2':
-        return 'orange'
-      case 'fourStarWeapon':
-        return 'purple'
-      default:
-        return 'blue'
-    }
-  }
-
   const StyledWrapper = styled.div`
-  .widget-container {
-    width: 50%;
-  }
-
   .sim-container {
     width: 80%;
     background-color: white;
+  }
+
+  .widget-container {
+    width: 50%;
   }
 
   .item-wrapper {
@@ -102,10 +35,13 @@ function SummonSim () {
   }
   `
   const StyledItemContainer = styled.div`
-    height: calc(80vh / 5);
     box-shadow: 0px 0px 4px 3px ${({ color }) => handleColorType(color)} ;
     animation: glower 1s infinite alternate;
     color: black;
+    .img-thumb {
+      object-fit: contain; /* keep aspect ratio */
+      max-height: 150px;
+    }
   `
 
   return (
@@ -130,7 +66,8 @@ function SummonSim () {
           <div className='px-3 mb-2 item-wrapper'>
               {currentItem.map((item, index) => (
               <StyledItemContainer color={item} className='item-container text-center' key={index}>
-                <p>{item}</p>
+                <img className='img-fluid mx-auto d-block img-thumb' src={handleSummonPool(item)[1]} alt={handleSummonPool(item)[0]} />
+                <p>{handleSummonPool(item)[0]}</p>
               </StyledItemContainer>
               ))}
           </div>

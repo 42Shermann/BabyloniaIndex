@@ -6,7 +6,8 @@ import Accordion from 'react-bootstrap/Accordion'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Table from 'react-bootstrap/Table'
 import Spinner from 'react-bootstrap/esm/Spinner'
-import { StyledAccordion, StyledTable, StyledLink } from './style'
+import { StyledLink } from '../../components'
+import { StyledAccordion, StyledTable } from './style'
 
 function WeaponList () {
   const [loading, setLoading] = useState(true)
@@ -96,7 +97,7 @@ function WeaponList () {
             <td>{data.atk}</td>
             <td>{data.crit}</td>
             <td className='avatar-container'>
-              <StyledLink className="avatar-text" to={`/characters/${data.const.cID}`}>
+              <StyledLink className="avatar-text" url={`characters/${data.const.cID}`} >
               <div className='row'>
                 <img className='img-fluid mx-auto d-block weapon-img-thumb' src={data.const.chibiImg.avatar} alt={data.const.Model} />
               </div>

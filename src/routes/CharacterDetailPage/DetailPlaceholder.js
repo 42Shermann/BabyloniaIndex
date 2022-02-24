@@ -2,7 +2,7 @@ import React from 'react'
 import Placeholder from 'react-bootstrap/Placeholder'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
-import { StyledTab } from '../Tab/style'
+import { StyledTab } from '../../components/Tab/style'
 
 function DetailPlaceholder () {
   const PHStats = () => {

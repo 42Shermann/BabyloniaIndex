@@ -1,13 +1,30 @@
 import React from 'react'
-import './Stats.css'
+import styled from 'styled-components'
 
 function Stats ({ info, statDetails, tag }) {
   const { serviceTime, psychologicalAge, activationDate, height, weight, vitalFluidType } = info
   const { stats, chart } = statDetails
   const { rank, type, faction, gift } = tag
 
+  const StyledWrapper = styled.div`
+  .stats-bg {
+    background-color: #212129;
+  }
+
+  .divider {
+    border-left: 2px solid white;
+  }
+
+  @media (max-width: 767px) {
+    .divider {
+      border-top: 2px solid white;
+      border-left: none;
+    }
+  }
+  `
+
   return (
-    <div>
+    <StyledWrapper>
       <div className="container-fluid text-white stats-bg">
       <div>
         <h2 className="text-center align-middle my-2">Info and Stats</h2>
@@ -96,7 +113,7 @@ function Stats ({ info, statDetails, tag }) {
       </div>
       </div>
 
-    </div>
+    </StyledWrapper>
   )
 }
 

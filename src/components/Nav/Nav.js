@@ -11,6 +11,7 @@ function Nav (props) {
         background-color: silver;
         border-radius: 0px;
         border: none;
+        transition-duration: 0.3s;
       }
       
     & .btn-nav:hover {
@@ -21,12 +22,12 @@ function Nav (props) {
         color: black;
       }
       & .styledLink:hover {
-          color: white;
+        color: white;
       }
     `
   return (
     <StyledWrap>
-      <Link onClick={props.handleClick} className="styledLink" to={`/${props.nav}`} >
+      <Link onClick={props.handleClick} style={{ textDecoration: 'none' }} className="styledLink" to={`/${props.nav}`} >
         <nav className="btn-nav text-capitalize text-center align-middle" >
           {props.nav}
         </nav>

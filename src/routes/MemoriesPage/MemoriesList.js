@@ -4,6 +4,8 @@ import { Tabs, Tab, Table, Spinner } from 'react-bootstrap'
 import { useAsync } from '../../hooks'
 import { api } from '../../config'
 import { TableWrapper } from './styles'
+import { StyledLink } from '../../components'
+import { StyledTab } from '../../components/Tab/style'
 
 const fetchData = async () => {
   const response = await fetch(`${api}/api/memory`, {
@@ -22,7 +24,8 @@ function MemoriesList () {
   <div>
   <h2>Memories</h2>
     { status === 'success'
-      ? <Tabs defaultActiveKey="constructMem" id="memTypeTab" >
+      ? <StyledTab>
+      <Tabs defaultActiveKey="constructMem" id="memTypeTab" >
   <Tab eventKey="overview" title="Overview">
     ...
   </Tab>
@@ -48,9 +51,9 @@ function MemoriesList () {
                   </Link>
                 </td>
                 <td>
-                  <Link to={`/memory/${item.name}`}>
+                  <StyledLink url={`memory/${item.name}`}>
                     {item.name}
-                  </Link>
+                  </StyledLink>
                 </td>
                 <td>{item.stats.HP}</td>
                 <td>{item.stats.Crit}</td>
@@ -66,6 +69,7 @@ function MemoriesList () {
     ...
   </Tab>
     </Tabs>
+    </StyledTab>
       : <div className="text-center">
       <Spinner animation="border" variant="light" />
     </div>

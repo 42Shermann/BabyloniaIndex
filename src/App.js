@@ -1,6 +1,5 @@
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'antd/dist/antd.css'
 import React from 'react'
 import MainRoute from './routes/MainRoute'
 import { RealmAppProvider } from './context/contextProvider'
