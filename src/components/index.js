@@ -1,8 +1,8 @@
-import Cards from './Cards/Cards'
-import StyledLink from './StyledLink/StyledLink'
-import SideBar from './Sidebar/sideBar'
-import TabComp from './Tab/Tab'
+import Cards from './Cards'
+import StyledLink from './StyledLink'
+import SideBar from './sideBar'
 import ScrollToTop from './scrollToTop'
 import Layout from './layout/Layout'
+import StyledTab from './StyledTab'
 
-export { Cards, StyledLink, SideBar, TabComp, ScrollToTop, Layout }
+export { Cards, StyledLink, StyledTab, SideBar, ScrollToTop, Layout }

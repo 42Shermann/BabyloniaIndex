@@ -1,45 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import React from 'react'
+import { useParams } from 'react-router-dom'
+import { useQuery } from 'react-query'
 import ConstrDetail from './CharacterDetailComponent'
 import DetailPlaceholder from './DetailPlaceholder'
 import { api } from '../../config'
 
 function CharsDetail () {
-  const navigate = useNavigate()
   const { userId } = useParams()
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    setLoading(true)
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${api}/api/construct/${userId}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          }
-        })
-        const json = await response.json()
-
-        if (json.length === 0) {
-          navigate('/404')
-        } else {
-          setData(json)
-          setLoading(false)
-        }
-      } catch (e) { console.log(e) }
+  const { isLoading, isSuccess, data } = useQuery(['charsList', userId], () =>
+    fetch(
+      `${api}/api/construct/${userId}`
+    ).then((res) => res.json())
+  )
+  if (isSuccess) {
+    if (!data.length) {
+      return <div>
+          <p>This page currently does not exist.</p>
+        </div>
     }
-
-    fetchData()
   }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  , [userId])
 
   return (
   <>
-  {!loading
+  {!isLoading
     ? (
       <ConstrDetail data={data[0]}/>
       )

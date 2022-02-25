@@ -1,38 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Outlet } from 'react-router'
+import { useQuery } from 'react-query'
+import { Stack, Spinner, Form } from 'react-bootstrap'
 import { api } from '../../config'
 import { RANK } from '../../constants/DATA'
-import { Stack, Spinner, Form } from 'react-bootstrap'
 import { Cards } from '../../components'
 
 function SelectCons () {
-  const [loading, setLoading] = useState(true)
-  const [DATA, setData] = useState([])
   const [query, setQuery] = useState('')
   const [type, setType] = useState('')
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${api}/api/construct/getList`, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-      const json = await response.json()
-      setData(json)
-      setLoading(false)
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  const { isLoading, data } = useQuery('cardList', async () =>
+    fetch(
+      `${api}/api/construct/getList`
+    ).then((res) => res.json())
+  , { initialData: [] }
+  )
 
-  useEffect(() => {
-    fetchData()
-  }
-  , [])
-  const queryData = DATA.filter(post => (
+  const queryData = data.filter(post => (
     query === ''
       ? post
       : post.cID.toLowerCase().includes(query.toLowerCase())
@@ -43,7 +28,7 @@ function SelectCons () {
     <div>
       <Outlet />
     </div>
-    {!loading
+    {!isLoading
       ? <div>
       <Stack direction='horizontal' gap={2}>
         <div>

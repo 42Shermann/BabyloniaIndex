@@ -7,6 +7,7 @@ import { isMobile } from 'react-device-detect'
 import { SideBar } from '..'
 
 function Layout () {
+  // State for burger menu
   const [isShow, setShow] = useToggle()
   return (
     <GlobalStyle>

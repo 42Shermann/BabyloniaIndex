@@ -1,77 +1,76 @@
 /* eslint-disable no-extra-parens */
-import React, { useState, useEffect } from 'react'
-import { NavHashLink } from 'react-router-hash-link'
-import { api } from '../../config'
-import Accordion from 'react-bootstrap/Accordion'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Table from 'react-bootstrap/Table'
-import Spinner from 'react-bootstrap/esm/Spinner'
+import React from 'react'
+import { useQuery } from 'react-query'
+import { Accordion, ListGroup, Table, Spinner } from 'react-bootstrap'
+import styled from 'styled-components'
+import { COLOUR } from '../../constants'
 import { StyledLink } from '../../components'
-import { StyledAccordion, StyledTable } from './style'
+import { api } from '../../config'
 
 function WeaponList () {
-  const [loading, setLoading] = useState(true)
-  const [DATA, setData] = useState([])
-  const [wepType, setType] = useState([])
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${api}/api/weapon`, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        }
-      })
-      const json = await response.json()
-      // Get weapon type
-      const unique = [...new Set(json.map(item => item.type))]
-      setType(unique)
-      //
-      setData(json)
-      setLoading(false)
-    } catch (e) {
-      console.log(e)
-    }
+  const { isLoading, data } = useQuery('weaponList', async () =>
+    fetch(
+    `${api}/api/weapon`
+    ).then((res) => res.json())
+  )
+  if (isLoading) {
+    return <div className="text-center">
+            <Spinner animation="border" variant="light" />
+          </div>
   }
-
-  useEffect(() => {
-    fetchData()
+  const StyledAccordion = styled.div`
+  & .accordion-button.collapsed {
+    background: black;
+    color: white;
+    font-size: 1.5rem;
   }
-  , [])
-
+  & .accordion-button {
+    background: #dc3545;
+    color: white;
+    font-size: 1.5rem;
+  }
+  & .accordion-body {
+    background: black;
+    color: white;
+  }
+  & .list-group-item {
+    background: black;
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  `
+  const StyledTable = styled.div`
+  & .table th {
+      color: white;
+      background-color: ${COLOUR.red};
+  }
+  & .table .limit-width {
+    min-width: 300px;
+    max-width: 550px;
+  }
+  & .weapon-img-thumb {
+    object-fit: contain; /* keep aspect ratio */
+    width: 150px;
+    max-height: 100%;
+  }
+  `
   return (
     <div>
       <div>
         <h2>Weapons List</h2>
       </div>
-      <StyledAccordion className='mb-4'>
-        <Accordion flush>
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>Contents</Accordion.Header>
-          <Accordion.Body>
-          <ListGroup variant="flush">
-            {wepType.map(((type, index) => (
-              <NavHashLink
-              key={index}
-              to={`/weapons/#${type}`}
-              >
-                <ListGroup.Item >{type}</ListGroup.Item>
-              </NavHashLink>
-            )))
-              }
-          </ListGroup>
-          </Accordion.Body>
-        </Accordion.Item>
-        </Accordion>
-      </StyledAccordion>
-      {wepType.length === 0 && loading
-        ? <div className="text-center">
-            <Spinner animation="border" variant="light" />
-          </div>
-        : <>
-      {wepType.map(((type, index) => (
-      <StyledTable key={index} className='mb-4'>
-      <h3 id={type} className="text-white" key={index}>{type}</h3>
+        <StyledAccordion className='mb-4'>
+          <Accordion flush>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Contents</Accordion.Header>
+            <Accordion.Body>
+            <ListGroup variant="flush">
+            </ListGroup>
+            </Accordion.Body>
+          </Accordion.Item>
+          </Accordion>
+        </StyledAccordion>
+      <StyledTable className='mb-4'>
       <Table responsive='sm'>
         <thead>
           <tr className="bg-danger">
@@ -83,7 +82,7 @@ function WeaponList () {
           </tr>
         </thead>
         <tbody className="text-white ">
-          {DATA.filter(data => data.type === type).map(data => (
+          {data.map(data => (
           <tr className='align-middle' key={data.id}>
             <td>
               <div className='row'>
@@ -111,9 +110,6 @@ function WeaponList () {
         </tbody>
       </Table>
       </StyledTable>
-      )))}
-      </>
-      }
     </div>
   )
 }

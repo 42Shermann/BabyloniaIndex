@@ -1,28 +1,29 @@
 import React from 'react'
-import { StyledTab } from './style'
-import Tabs from 'react-bootstrap/Tabs'
-import Tab from 'react-bootstrap/Tab'
+import { Row, Col, Tab, Tabs } from 'react-bootstrap'
+import { StyledTab } from '../../components'
 
 function TabComp ({ props }) {
   const skillList = props.map(data => (
   <Tab key={data.id} eventKey={data.id} title={data.cate} className=" my-2 tabContents">
-    <div className="row align-items-center">
-    <div className="col-12 col-lg-2">
+    <Row className="align-items-center">
+    <Col xs={12} md={2}>
       <img className="img-fluid mx-auto d-block" src={data.img} alt={data.name}/>
-    </div>
-    <div className="col-12 col-lg-10">
-    <div className="row mt-1">
-      <h3 className="text-white">
-      {data.name}
-      </h3>
-    </div>
-    <div className="row">
-      <p className='new-line-text '>
+    </Col>
+    <Col xs={12} md={10}>
+    <Row className="row mt-1">
+      <Col>
+        <h3 className="text-white center-heading">
+          {data.name}
+        </h3>
+      </Col>
+    </Row>
+    <Row>
+      <p className='new-line-text'>
       {data.skillDesc}
       </p>
-    </div>
-    </div>
-  </div>
+    </Row>
+    </Col>
+  </Row>
   </Tab>
   )
   )

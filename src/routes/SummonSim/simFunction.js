@@ -1,5 +1,5 @@
 const INITIAL_ARRAY = []
-const testArr = ['fiveStarWeapon', 'signatureOffRate1', 'signatureOffRate2', 'fiveStarOffRate1', 'fiveStarOffRate2']
+const testArr = ['fiveStarWeapon', 'fiveStarOffRate1', 'fiveStarOffRate2']
 
 function getRandomInt (min, max) {
   min = Math.ceil(min)
@@ -34,20 +34,6 @@ function getItem (int) {
 }
 
 const checkPity = (input) => testArr.includes(input)
-
-function doGacha () {
-  const array = [...INITIAL_ARRAY]
-  for (let i = 0; i < 10; i++) {
-    const int = getRandomInt(0, 10000)
-    const item = getItem(int)
-    if (i === 9 && !(array.some(checkPity))) {
-      array.push('fiveStarWeapon')
-    } else {
-      array.push(item)
-    }
-  }
-  return array
-}
 
 const handleSummonPool = item => {
   switch (item) {
@@ -121,4 +107,4 @@ const handleColorType = color => {
   }
 }
 
-export { doGacha, handleSummonPool, handleColorType, INITIAL_ARRAY }
+export { checkPity, handleSummonPool, handleColorType, getItem, getRandomInt, INITIAL_ARRAY }

@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import { isMobile } from 'react-device-detect'
 import { Link } from 'react-router-dom'
-import { COLOUR } from '../../constants'
+import { COLOUR } from '../constants'
 
 const mainList = [
   'home', 'characters', 'weapons', 'memories', 'sim'

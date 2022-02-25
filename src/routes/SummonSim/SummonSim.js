@@ -1,20 +1,36 @@
 import React, { useState } from 'react'
 import { Stack, Button } from 'react-bootstrap'
 import styled from 'styled-components'
-import { doGacha, handleSummonPool, handleColorType, INITIAL_ARRAY } from './simFunction'
+import { checkPity, handleSummonPool, handleColorType, getItem, getRandomInt, INITIAL_ARRAY } from './simFunction'
 
 function SummonSim () {
   const [currentItem, setItem] = useState(INITIAL_ARRAY)
   const [countSummon, setCount] = useState(0)
+  const [sixStarPityCount, SetSixStarPity] = useState(0)
 
   const clearArray = () => {
     setItem([...INITIAL_ARRAY])
     setCount(0)
+    SetSixStarPity(0)
   }
 
   function handleSummon () {
-    const allItem = doGacha()
-    setItem([...allItem])
+    const array = [...INITIAL_ARRAY]
+    for (let i = 0; i < 10; i++) {
+      const int = getRandomInt(0, 10000)
+      const item = getItem(int)
+      if (sixStarPityCount === 29 || item === 'signatureWeapon') {
+        array.push('signatureWeapon')
+        SetSixStarPity(0)
+      } else if (i === 9 && !(array.some(checkPity))) {
+        array.push('fiveStarWeapon')
+        SetSixStarPity(n => n + 1)
+      } else {
+        array.push(item)
+        SetSixStarPity(n => n + 1)
+      }
+    }
+    setItem([...array])
     setCount(n => n + 10)
   }
 
@@ -59,8 +75,8 @@ function SummonSim () {
               <p>{countSummon}</p>
             </div>
             <div className='widget-container text-center'>
-              <p>Total estimated USD spent</p>
-              <p>{(countSummon * 4.18).toFixed(2)}$</p>
+              <p>Six Star Pity Count</p>
+              <p>{sixStarPityCount}/30</p>
             </div>
           </Stack>
           <div className='px-3 mb-2 item-wrapper'>

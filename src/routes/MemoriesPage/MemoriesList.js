@@ -1,29 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Tabs, Tab, Table, Spinner } from 'react-bootstrap'
-import { useAsync } from '../../hooks'
+import { useQuery } from 'react-query'
 import { api } from '../../config'
 import { TableWrapper } from './styles'
-import { StyledLink } from '../../components'
-import { StyledTab } from '../../components/Tab/style'
-
-const fetchData = async () => {
-  const response = await fetch(`${api}/api/memory`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }
-  })
-  return await response.json()
-}
+import { StyledLink, StyledTab } from '../../components'
 
 function MemoriesList () {
-  const { status, value } = useAsync(fetchData)
+  const { isLoading, data } = useQuery('memoriesList', () =>
+    fetch(
+      `${api}/api/memory`
+    ).then((res) => res.json())
+  )
   return (
   <div>
   <h2>Memories</h2>
-    { status === 'success'
+    { !isLoading
       ? <StyledTab>
       <Tabs defaultActiveKey="constructMem" id="memTypeTab" >
   <Tab eventKey="overview" title="Overview">
@@ -43,15 +35,15 @@ function MemoriesList () {
         </tr>
       </thead>
       <tbody>
-          { value.map((item, index) =>
+          { data.map((item, index) =>
             <tr className='styled-cell align-middle' key={index}>
                 <td>
-                  <Link to={`/memory/${item.name}`}>
+                  <Link to={`/memories/${item.name}`}>
                     <img className='img-fluid mx-auto d-block img-table' src={item.portrait[0]} alt={item.name} />
                   </Link>
                 </td>
                 <td>
-                  <StyledLink url={`memory/${item.name}`}>
+                  <StyledLink url={`memories/${item.name}`}>
                     {item.name}
                   </StyledLink>
                 </td>
