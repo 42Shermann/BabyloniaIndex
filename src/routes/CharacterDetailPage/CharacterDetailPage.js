@@ -4,36 +4,29 @@ import { useQuery } from 'react-query'
 import ConstrDetail from './CharacterDetailComponent'
 import DetailPlaceholder from './DetailPlaceholder'
 import { api } from '../../config'
+import { Error } from '../../components'
 
 function CharsDetail () {
   const { userId } = useParams()
 
-  const { isLoading, isSuccess, data } = useQuery(['charsList', userId], () =>
+  const { isLoading, error, data } = useQuery(['charsList', userId], () =>
     fetch(
       `${api}/api/construct/${userId}`
     ).then((res) => res.json())
   )
-  if (isSuccess) {
-    if (!data.length) {
-      return <div>
-          <p>This page currently does not exist.</p>
-        </div>
-    }
+
+  if (isLoading) {
+    return <DetailPlaceholder />
+  }
+
+  if (!data.length || error) {
+    return <div>
+        <Error />
+      </div>
   }
 
   return (
-  <>
-  {!isLoading
-    ? (
-      <ConstrDetail data={data[0]}/>
-      )
-    : (
-    <div>
-      <DetailPlaceholder />
-    </div>
-      )
-  }
-  </>
+    <ConstrDetail data={data[0]}/>
   )
 }
 

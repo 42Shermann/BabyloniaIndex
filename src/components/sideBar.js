@@ -21,6 +21,7 @@ function SideBar ({ handleClick }) {
     
   & .btn-nav:hover {
       background-color: ${COLOUR.red};
+      transform: scale(1.05);
     }
     
   & .styledLink {

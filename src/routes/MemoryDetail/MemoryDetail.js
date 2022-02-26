@@ -3,20 +3,35 @@ import { useParams } from 'react-router-dom'
 import { Col, Row, Spinner, Table } from 'react-bootstrap'
 import { useQuery } from 'react-query'
 import { StyledTable, StyledHeader, ImgContainer } from './style'
+import { Error } from '../../components'
 import { api } from '../../config'
 import cloudEdit from '../../utils/CloudinaryImage'
 
 function MemoryDetail () {
   const { memName } = useParams()
-  const { isLoading, data } = useQuery(['memoryDetail', memName], () =>
+  const { isLoading, error, data } = useQuery(['memoryDetail', memName], () =>
     fetch(
       `${api}/api/memory/${memName}`
     ).then((res) => res.json())
   )
+
+  if (isLoading) {
+    return (
+      <div className="text-center">
+        <Spinner animation="border" variant="light" />
+      </div>
+    )
+  }
+
+  if (!data.length || error) {
+    return <div>
+        <Error />
+      </div>
+  }
+
   return (
       <div>
-      {!isLoading
-        ? <div>
+        <div>
             <ImgContainer>
               <h2 className='sr-only'>{data[0].name}</h2>
               <img className='img-fluid mx-auto d-block' src={cloudEdit(data[0].portrait[0])} alt={data[0].name} />
@@ -62,10 +77,6 @@ function MemoryDetail () {
               <p>{data[0].stories[1]}</p>
             </>
           </div>
-        : <div className="text-center">
-            <Spinner animation="border" variant="light" />
-          </div>
-      }
       </div>
   )
 }

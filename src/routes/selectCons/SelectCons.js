@@ -17,6 +17,14 @@ function SelectCons () {
   , { initialData: [] }
   )
 
+  if (isLoading) {
+    return (
+      <div className="text-center">
+        <Spinner animation="border" variant="light" />
+      </div>
+    )
+  }
+
   const queryData = data.filter(post => (
     query === ''
       ? post
@@ -28,8 +36,7 @@ function SelectCons () {
     <div>
       <Outlet />
     </div>
-    {!isLoading
-      ? <div>
+     <div>
       <Stack direction='horizontal' gap={2}>
         <div>
           <Form.Group>
@@ -61,10 +68,6 @@ function SelectCons () {
       </div>
       ))}
     </div>
-      : <div className="text-center">
-        <Spinner animation="border" variant="light" />
-      </div>
-    }
     </div>
   )
 }

@@ -12,11 +12,19 @@ function MemoriesList () {
       `${api}/api/memory`
     ).then((res) => res.json())
   )
+
+  if (isLoading) {
+    return (
+      <div className="text-center">
+        <Spinner animation="border" variant="light" />
+      </div>
+    )
+  }
+
   return (
   <div>
   <h2>Memories</h2>
-    { !isLoading
-      ? <StyledTab>
+  <StyledTab>
       <Tabs defaultActiveKey="constructMem" id="memTypeTab" >
   <Tab eventKey="overview" title="Overview">
     ...
@@ -62,10 +70,6 @@ function MemoriesList () {
   </Tab>
     </Tabs>
     </StyledTab>
-      : <div className="text-center">
-      <Spinner animation="border" variant="light" />
-    </div>
-  }
   </div>
   )
 }

@@ -1,12 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Stats ({ info, statDetails, tag }) {
-  const { serviceTime, psychologicalAge, activationDate, height, weight, vitalFluidType } = info
-  const { stats, chart } = statDetails
-  const { rank, type, faction, gift } = tag
-
-  const StyledWrapper = styled.div`
+const StyledWrapper = styled.div`
   .stats-bg {
     background-color: #212129;
   }
@@ -21,7 +16,12 @@ function Stats ({ info, statDetails, tag }) {
       border-left: none;
     }
   }
-  `
+`
+
+function Stats ({ info, statDetails, tag }) {
+  const { serviceTime, psychologicalAge, activationDate, height, weight, vitalFluidType } = info
+  const { stats, chart } = statDetails
+  const { rank, type, faction, gift } = tag
 
   return (
     <StyledWrapper>

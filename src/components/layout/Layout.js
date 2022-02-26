@@ -1,10 +1,11 @@
 import React from 'react'
 import { useToggle } from '../../hooks'
-import { GlobalStyle, StyledBG, StyledNavbar, StyledFooter } from './style'
+import { GlobalStyle, StyledBG, StyledNavbar } from './style'
 import { Outlet } from 'react-router-dom'
 import { Row, Col, Container, Navbar, Offcanvas } from 'react-bootstrap'
 import { isMobile } from 'react-device-detect'
 import { SideBar } from '..'
+import Footer from '../Footer'
 
 function Layout () {
   // State for burger menu
@@ -57,9 +58,7 @@ function Layout () {
         </Row>
       </Container>
       </StyledBG>
-      <StyledFooter>
-        <p>© 2018 Gandalf</p>
-      </StyledFooter>
+      <Footer />
     </GlobalStyle>
   )
 }
