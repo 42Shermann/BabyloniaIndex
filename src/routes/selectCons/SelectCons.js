@@ -14,7 +14,6 @@ function SelectCons () {
     fetch(
       `${api}/api/construct/getList`
     ).then((res) => res.json())
-  , { initialData: [] }
   )
 
   if (isLoading) {

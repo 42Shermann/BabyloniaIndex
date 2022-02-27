@@ -43,7 +43,6 @@ const StyledTab = ({ children }) => {
       .tabContents {
         padding-left: 10px;
         padding-right: 10px;
-        text-indent: 2em;
       }
       .center-heading {
           margin: 0 auto;

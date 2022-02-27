@@ -1,12 +1,10 @@
 import React from 'react'
-import Tab from 'react-bootstrap/Tab'
-import Tabs from 'react-bootstrap/Tabs'
-import Image from 'react-bootstrap/Image'
+import { Tabs, Tab, Image } from 'react-bootstrap'
 import { getRank, getType, getFaction, getGift, getElement } from '../../constants/DATA'
 import TabComp from './Tab'
 import Stats from './Stats'
 import './ConstrDetail.css'
-import { StyledTab } from '../../components'
+import { CommentSection, Divider, StyledTab } from '../../components'
 
 function ConstrDetail ({ data }) {
   const tag = {
@@ -149,9 +147,9 @@ function ConstrDetail ({ data }) {
           </Tab>
         </Tabs>
       </StyledTab>
-          <div className="row">
-            <div className="mb-4 border border-top border-white" />
-          </div>
+        <Divider />
+        <CommentSection />
+        <Divider />
       </div>
   )
 }

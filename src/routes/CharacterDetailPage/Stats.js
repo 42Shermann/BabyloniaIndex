@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Divider } from '../../components'
 
 const StyledWrapper = styled.div`
   .stats-bg {
@@ -29,9 +30,7 @@ function Stats ({ info, statDetails, tag }) {
       <div>
         <h2 className="text-center align-middle my-2">Info and Stats</h2>
       </div>
-      <div className="row">
-        <div className="mb-4 border border-top border-white" />
-      </div>
+      <Divider />
       <div className="row my-4">
         <div className="col-12 col-md-6 mb-4 mb-md-0">
           <div className="row">
@@ -83,9 +82,7 @@ function Stats ({ info, statDetails, tag }) {
           </div>
         </div>
       </div>
-      <div className="row">
-        <div className="my-4 border border-top border-white" />
-      </div>
+      <Divider />
       <div className="px-2 row text-center type-container ">
         <div className="col">
         <p>Class</p>
@@ -108,9 +105,7 @@ function Stats ({ info, statDetails, tag }) {
           <p>{gift.type}</p>
         </div>
       </div>
-      <div className="row">
-        <div className="mb-4 border border-top border-white" />
-      </div>
+      <Divider />
       </div>
 
     </StyledWrapper>
