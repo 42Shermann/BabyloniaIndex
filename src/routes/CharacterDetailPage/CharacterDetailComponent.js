@@ -148,7 +148,7 @@ function ConstrDetail ({ data }) {
         </Tabs>
       </StyledTab>
         <Divider />
-        <CommentSection />
+        <CommentSection cID={data.cID}/>
         <Divider />
       </div>
   )
