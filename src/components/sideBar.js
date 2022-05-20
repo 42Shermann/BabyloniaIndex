@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { COLOUR } from '../constants'
 
 const mainList = [
-  'home', 'characters', 'weapons', 'memories', 'sim'
+  'home', 'characters', 'weapons', 'memories'
 ]
 
 function SideBar ({ handleClick }) {

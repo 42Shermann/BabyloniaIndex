@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Col, Row, Spinner, Table } from 'react-bootstrap'
 import { useQuery } from 'react-query'
 import { StyledTable, StyledHeader, ImgContainer } from './style'
-import { Error } from '../../components'
+import { CommentSection, Divider, Error } from '../../components'
 import { api } from '../../config'
 import cloudEdit from '../../utils/CloudinaryImage'
 
@@ -77,6 +77,8 @@ function MemoryDetail () {
               <p>{data[0].stories[1]}</p>
             </>
           </div>
+          <Divider />
+          <CommentSection cID={memName} />
       </div>
   )
 }

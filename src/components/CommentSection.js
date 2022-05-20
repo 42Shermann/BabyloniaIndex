@@ -25,11 +25,12 @@ const CommentSection = ({ cID }) => {
   const [isCommentVisible, setVisible] = useState(false)
   const queryClient = useQueryClient()
 
-  const { data, isFetching } = useQuery(['allComments', cID], () =>
+  const { data, isLoading } = useQuery(['allComments', cID], () =>
     fetch(
       `${api}/api/comment/${cID}`
     ).then((res) => res.json()), {
-    initialData: []
+    initialData: [],
+    enabled: isCommentVisible
   }
   )
 
@@ -88,7 +89,7 @@ const CommentSection = ({ cID }) => {
           </Col>
         </Row>
       </Form>
-    {Mutation.isLoading || isFetching
+    {Mutation.isLoading || isLoading
       ? <div className="text-center">
             <Spinner animation="border" variant="light" />
       </div>
